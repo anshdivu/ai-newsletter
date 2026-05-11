@@ -4,6 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Claude & AI Weekly. Issue #4, May 8, 2026</title>
+<meta name="description" content="Plan Mode spotlight, Managed Agents adds Dreaming + Outcomes, Anthropic crosses $30B ARR, and GPT-5.5 Instant ships.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Claude & AI Weekly">
+<meta property="og:title" content="Claude &amp; AI Weekly — Issue #004: Plan Mode, Dreaming, and the SpaceX compute deal">
+<meta property="og:description" content="Plan Mode spotlight, Managed Agents adds Dreaming + Outcomes, Anthropic crosses $30B ARR, and GPT-5.5 Instant ships.">
+<meta property="og:url" content="https://anshdivu.github.io/ai-newsletter/weekly/004.html">
+<meta property="og:image" content="https://anshdivu.github.io/ai-newsletter/og/004.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Claude &amp; AI Weekly — Issue #004, May 8, 2026">
+<meta property="article:published_time" content="2026-may-8">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Claude &amp; AI Weekly — Issue #004: Plan Mode, Dreaming, and the SpaceX compute deal">
+<meta name="twitter:description" content="Plan Mode spotlight, Managed Agents adds Dreaming + Outcomes, Anthropic crosses $30B ARR, and GPT-5.5 Instant ships.">
+<meta name="twitter:image" content="https://anshdivu.github.io/ai-newsletter/og/004.png">
+<link rel="canonical" href="https://anshdivu.github.io/ai-newsletter/weekly/004.html">
 <base target="_blank">
 <script>
   // Apply persisted theme before paint to avoid flash
@@ -559,12 +575,12 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
 
   <div class="tip">
     <div class="tip-label">Context engineering · The AI Corner</div>
-    <div class="tip-text"><strong>Context engineering has replaced prompt engineering as the real leverage point.</strong> Your context window. What you load, in what order, with what structure. Almost always matters more than how you phrase the ask. Build a persistent context system (CLAUDE.md, indexed docs, pinned files via <code>@</code>) before you write the prompt. <a href="https://www.the-ai-corner.com/p/claude-best-practices-power-user-guide-2026">Power user guide →</a></div>
+    <div class="tip-text"><strong>Context engineering has replaced prompt engineering as the real leverage point.</strong> What you load into your context window, in what order and structure, matters more than how you phrase the ask. Build a persistent context system (CLAUDE.md, indexed docs, pinned files via <code>@</code>) before you write the prompt. <a href="https://www.the-ai-corner.com/p/claude-best-practices-power-user-guide-2026">Power user guide →</a></div>
   </div>
 
   <div class="tip">
     <div class="tip-label">Context hygiene · Builder.io</div>
-    <div class="tip-text"><strong>Treat the context window like RAM, not storage.</strong> Performance degrades as it fills. <code>/clear</code> between unrelated tasks, <strong>compact at ~70%</strong> usage, delegate research to subagents, and scope each task narrowly. The community consensus from the May 2026 surveys is that this single discipline. Keeping sessions short and focused. Separates 2× users from 10× users. <a href="https://www.builder.io/blog/claude-code-tips-best-practices">50 Claude Code tips →</a></div>
+    <div class="tip-text"><strong>Treat the context window like RAM, not storage.</strong> Performance degrades as it fills. <code>/clear</code> between unrelated tasks, <strong>compact at ~70%</strong> usage, delegate research to subagents, and scope each task narrowly. The community consensus from the May 2026 surveys: this single discipline of keeping sessions short and focused separates 2× users from 10× users. <a href="https://www.builder.io/blog/claude-code-tips-best-practices">50 Claude Code tips →</a></div>
   </div>
 
   <div class="tip">
@@ -637,7 +653,7 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
 
   <div class="item">
     <a class="title" href="https://claude.com/blog/new-in-claude-managed-agents">Managed Agents adds Dreaming, Outcomes, and multi-agent orchestration</a>
-    <div class="desc">The headline ship from Code w/ Claude (May 6). <strong>Dreaming</strong> turns post-session reflection into curated memories. <strong>Outcomes</strong> let agents iterate against success criteria. <strong>multi-agent orchestration</strong> lets a lead agent fan out to specialist sub-agents on a shared filesystem and pull their results back into its own context.</div>
+    <div class="desc">The headline ship from Code w/ Claude (May 6). <strong>Dreaming</strong> turns post-session reflection into curated memories. <strong>Outcomes</strong> let agents iterate against success criteria. <strong>Multi-agent orchestration</strong> lets a lead agent fan out to specialist sub-agents on a shared filesystem and pull their results back into its own context.</div>
     <div class="source">Anthropic · SD Times</div>
   </div>
 
@@ -655,7 +671,7 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
 
   <div class="item">
     <a class="title" href="https://github.com/anthropics/claude-code/releases">Claude Code. Plugin URLs, gateway model discovery, project purge</a>
-    <div class="desc">New <code>--plugin-url &lt;url&gt;</code> flag fetches a plugin <code>.zip</code> from a URL for the current session. <code>/model</code> picker now reads from your gateway's <code>/v1/models</code> endpoint when <code>ANTHROPIC_BASE_URL</code> points at a compatible gateway. <code>claude project purge [path]</code> wipes all Claude Code state for a project.</div>
+    <div class="desc">New <code>--plugin-url &lt;url&gt;</code> flag fetches a plugin <code>.zip</code> from a URL for the current session. <code>/model</code> picker now reads from your gateway's <code>/v1/models</code> endpoint when <code>ANTHROPIC_BASE_URL</code> points at a compatible gateway. <code>Claude project purge [path]</code> wipes all Claude Code state for a project.</div>
     <div class="source">GitHub · Anthropic</div>
   </div>
 
