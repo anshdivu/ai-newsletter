@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+._*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Dependencies (if anyone adds tooling later)
+node_modules/
+__pycache__/
+*.pyc
+
+# Local secrets (the GitHub PAT for the scheduled publisher lives here on the
+# author's machine — never commit). See README for setup.
+.ai-newsletter/
+
+# Build artifacts
+*.log
+.cache/

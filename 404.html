@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found · Claude & AI Weekly</title>
+<script>
+  // Redirect old /claude-ai-weekly-NNN.html URLs to /weekly/NNN.html
+  (function(){
+    var m = window.location.pathname.match(/claude-ai-weekly-(\d+)\.html$/);
+    if (m) {
+      window.location.replace('/ai-newsletter/weekly/' + m[1] + '.html');
+    }
+  })();
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F4EE;
+    --text: #1B1A17;
+    --text-mid: #46443F;
+    --text-muted: #8A867D;
+    --accent: #6B5CE7;
+    --serif: 'Newsreader', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15140F; --text: #ECE7DA; --text-mid: #B8B2A2; --text-muted: #7A766B; --accent: #A99CFF; }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 480px; text-align: center; }
+  .num {
+    font-family: var(--serif);
+    font-size: clamp(72px, 12vw, 120px);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -3px;
+    color: var(--accent);
+    font-style: italic;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 600;
+    margin-top: 12px;
+    color: var(--text);
+  }
+  p { font-size: 15px; color: var(--text-mid); margin-top: 14px; line-height: 1.6; }
+  a {
+    display: inline-block;
+    margin-top: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+  }
+  a:hover { color: var(--text); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="num">404</div>
+  <h1>Not found</h1>
+  <p>This page doesn't exist, or has moved. Old <code>claude-ai-weekly-N.html</code> URLs redirect automatically.</p>
+  <a href="/ai-newsletter/">Back to the archive →</a>
+</div>
+</body>
+</html>
