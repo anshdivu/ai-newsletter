@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude & AI Weekly — Issue #3, May 1, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF8;
+  --surface: #FFFFFF;
+  --text: #1a1a1a;
+  --text-mid: #4a4a4a;
+  --text-muted: #8a8a8a;
+  --border: #e8e6e1;
+  --accent: #6B5CE7;
+  --accent-soft: #F0EEFF;
+  --link: #4338CA;
+  --tag-tips-bg: #FEF3C7; --tag-tips-text: #92400E;
+  --tag-spot-bg: #DBEAFE; --tag-spot-text: #1E40AF;
+  --tag-rel-bg: #EDE9FE; --tag-rel-text: #5B21B6;
+  --tag-comm-bg: #D1FAE5; --tag-comm-text: #065F46;
+  --tag-ai-bg: #FFE4E6; --tag-ai-text: #9F1239;
+  --callout-bg: #F8F7F4;
+  --callout-border: #E8E6E1;
+  --mono: 'IBM Plex Mono', monospace;
+  --sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141413;
+    --surface: #1C1C1A;
+    --text: #E8E6E1;
+    --text-mid: #B0ADA6;
+    --text-muted: #6B6862;
+    --border: #2E2D2A;
+    --accent: #9B8FFF;
+    --accent-soft: #1E1A3A;
+    --link: #A5B4FC;
+    --tag-tips-bg: #422006; --tag-tips-text: #FDE68A;
+    --tag-spot-bg: #1E3A5F; --tag-spot-text: #93C5FD;
+    --tag-rel-bg: #2E1065; --tag-rel-text: #C4B5FD;
+    --tag-comm-bg: #064E3B; --tag-comm-text: #6EE7B7;
+    --tag-ai-bg: #4C0519; --tag-ai-text: #FDA4AF;
+    --callout-bg: #1E1E1C;
+    --callout-border: #2E2D2A;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--sans); font-size: 15px; line-height: 1.6; color: var(--text); background: var(--bg); padding: 2rem 1rem; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 600px; margin: 0 auto; }
+
+/* ── Header ── */
+.masthead { text-align: center; padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+.masthead .issue { font-family: var(--mono); font-size: 12px; color: var(--text-muted); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 12px; }
+.masthead h1 { font-size: 28px; font-weight: 600; color: var(--text); letter-spacing: -0.5px; }
+.masthead h1 span { color: var(--accent); }
+.masthead .tagline { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
+
+/* ── Section tags ── */
+.section { margin-bottom: 2.5rem; }
+.section-tag { display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; margin-bottom: 16px; }
+.tag-tips { background: var(--tag-tips-bg); color: var(--tag-tips-text); }
+.tag-spotlight { background: var(--tag-spot-bg); color: var(--tag-spot-text); }
+.tag-releases { background: var(--tag-rel-bg); color: var(--tag-rel-text); }
+.tag-community { background: var(--tag-comm-bg); color: var(--tag-comm-text); }
+.tag-landscape { background: var(--tag-ai-bg); color: var(--tag-ai-text); }
+
+/* ── Items ── */
+.item { margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.item:last-of-type { border-bottom: none; }
+.item a.title { font-weight: 500; font-size: 15px; color: var(--link); text-decoration: none; line-height: 1.4; }
+.item a.title:hover { text-decoration: underline; }
+.item .desc { font-size: 13.5px; color: var(--text-mid); margin-top: 3px; line-height: 1.5; }
+.item .source { font-family: var(--mono); font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+
+/* ── Callout box ── */
+.callout { background: var(--callout-bg); border: 1px solid var(--callout-border); border-radius: 6px; padding: 14px 16px; margin: 16px 0 4px; }
+.callout .callout-label { font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 8px; }
+.callout ul { padding-left: 16px; font-size: 13px; color: var(--text-mid); line-height: 1.55; }
+.callout li { margin-bottom: 6px; }
+.callout a { color: var(--link); text-decoration: none; }
+.callout a:hover { text-decoration: underline; }
+.callout code { font-family: var(--mono); font-size: 12px; background: var(--accent-soft); padding: 1px 5px; border-radius: 3px; }
+.callout strong { font-weight: 600; color: var(--text); }
+
+/* ── Spotlight card ── */
+.spotlight { background: var(--accent-soft); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; margin-bottom: 16px; }
+.spotlight .spot-label { font-family: var(--mono); font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.spotlight .spot-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.spotlight .spot-desc { font-size: 13.5px; color: var(--text-mid); line-height: 1.5; }
+
+/* ── Tip cards ── */
+.tip { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 10px; }
+.tip .tip-label { font-family: var(--mono); font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 4px; }
+.tip .tip-text { font-size: 13.5px; color: var(--text-mid); line-height: 1.5; }
+.tip .tip-text strong { color: var(--text); }
+.tip a { color: var(--link); text-decoration: none; }
+.tip a:hover { text-decoration: underline; }
+.tip code { font-family: var(--mono); font-size: 12px; background: var(--accent-soft); padding: 1px 5px; border-radius: 3px; }
+
+/* ── Divider ── */
+.sep { border: none; border-top: 1px solid var(--border); margin: 0 0 2.5rem; }
+
+/* ── Footer ── */
+.footer { text-align: center; padding: 2rem 0 1rem; border-top: 1px solid var(--border); margin-top: 1rem; }
+.footer p { font-family: var(--mono); font-size: 11px; color: var(--text-muted); line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<div class="masthead">
+  <div class="issue">#3 · May 1, 2026</div>
+  <h1>Claude <span>&</span> AI Weekly</h1>
+  <div class="tagline">Features, tips, community, and the broader AI landscape — in 5 minutes</div>
+</div>
+
+<!-- ════════════════════ TIPS & TRICKS ════════════════════ -->
+<div class="section">
+  <div class="section-tag tag-tips">Tips & Tricks</div>
+
+  <div class="tip">
+    <div class="tip-label">Marmelab · Apr 24</div>
+    <div class="tip-text"><strong>Use <code>/rewind</code> instead of continuing after a bad response.</strong> A wrong answer stays in context and pollutes everything that follows. <code>/rewind</code> rolls back to the last good state; <code>/clear</code> nukes the whole context. Both are cheaper than arguing with Claude about its mistake. <a href="https://marmelab.com/blog/2026/04/24/claude-code-tips-i-wish-id-had-from-day-one.html">All tips →</a></div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">Plugin recommendation</div>
+    <div class="tip-text"><strong>Install an LSP plugin — it's the highest-impact single add-on.</strong> LSP feeds Claude automatic diagnostics after every file edit, so it sees and fixes type errors, lint warnings, and import issues before you even notice them. Pair it with <a href="https://context7.com">Context7</a> for indexed library docs at exact versions — no more Claude hallucinating API signatures.</div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">Prompting technique</div>
+    <div class="tip-text"><strong>Use <code>@</code> to load files directly into context.</strong> Without it, Claude has to search for the file and read it in chunks — slower and uses more tokens. <code>@src/auth/middleware.ts</code> loads the entire file immediately. Combine with XML tags for multi-file prompts: wrap each file reference in a labeled section so Claude knows what each one is for.</div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">12 agentic patterns · Level Up Coding</div>
+    <div class="tip-text"><strong>The Plan → Execute → Verify loop is non-negotiable.</strong> Start every complex task with <code>/plan</code>, let Claude lay out its approach, correct wrong assumptions, then execute. Add a verification step (tests, linter, screenshots) at the end. Devs who skip Plan Mode report <strong>3–5x more rework</strong>. <a href="https://levelup.gitconnected.com/claude-code-best-practices-12-patterns-agentic-engineers-use-65264e3eb919">Read all 12 patterns →</a></div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">More to explore</div>
+    <ul>
+      <li><a href="https://evartology.substack.com/p/claude-code-best-practices-for-better-coding-may-2026"><strong>Claude Code best practices for better coding (May 2026)</strong></a> — fresh walkthrough covering effort levels, CLAUDE.md, and session control</li>
+      <li><a href="https://smart-webtech.com/blog/claude-code-workflows-and-best-practices/"><strong>Claude Code workflows and best practices</strong></a> — multi-agent patterns, cost optimization, real-world templates</li>
+      <li><a href="https://github.com/MuhammadUsmanGM/claude-code-best-practices"><strong>claude-code-best-practices wiki</strong></a> — CLAUDE.md templates, workflow guides, setup checklists</li>
+      <li><a href="https://www.builder.io/blog/claude-code-tips-best-practices"><strong>50 Claude Code tips</strong></a> — Builder.io's comprehensive daily-use reference</li>
+      <li><a href="https://blockchain.news/ainews/claude-ai-community-insight-5-practical-prompting-lessons-and-business-use-cases-latest-analysis-2026"><strong>5 practical prompting lessons from the community</strong></a> — business use cases + prompting patterns that stuck</li>
+    </ul>
+  </div>
+</div>
+<hr class="sep">
+
+<!-- ════════════════════ FEATURE SPOTLIGHT ════════════════════ -->
+<div class="section">
+  <div class="section-tag tag-spotlight">Feature Spotlight</div>
+
+  <div class="spotlight">
+    <div class="spot-label">This week</div>
+    <div class="spot-title">Claude Code Hooks</div>
+    <div class="spot-desc">Hooks are user-defined shell commands that fire at specific lifecycle points — before/after tool calls, on session start/end, and more. Think Git hooks for your AI coding workflow. Define the event, the matcher, and the action; Claude executes them deterministically every time, no prompting required. <strong>25 lifecycle events</strong> as of the latest release, with async and HTTP hooks for advanced integrations.</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://code.claude.com/docs/en/hooks-guide">Official hooks guide — Automate workflows with hooks</a>
+    <div class="desc">Anthropic's own documentation covering all lifecycle events, configuration syntax, matcher patterns, and examples for code formatting, testing, and security validation.</div>
+    <div class="source">Claude Code Docs</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://claudefa.st/blog/tools/hooks/hooks-guide">Complete guide to all 12+ lifecycle events</a>
+    <div class="desc">Deep dive into PreToolUse (security checkpoint), Stop/SubagentStop (force continuation), SessionStart/SessionEnd, and the newer async and HTTP hook types.</div>
+    <div class="source">ClaudeFast</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://www.datacamp.com/tutorial/claude-code-hooks">Claude Code Hooks: A practical guide to workflow automation</a>
+    <div class="desc">DataCamp's tutorial with copy-paste examples for auto-formatting on save, blocking dangerous commands, and integrating with CI/CD pipelines.</div>
+    <div class="source">DataCamp</div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Also worth learning</div>
+    <ul>
+      <li><strong>Claude Security</strong> (public beta, May 1) — dedicated vulnerability scanning + patch generation for Enterprise, powered by Opus 4.7</li>
+      <li><strong>Routines</strong> (research preview) — cloud-hosted automation tier introduced April 14. Schedule recurring Claude tasks without a local machine</li>
+      <li><strong><code>alwaysLoad</code> for MCP servers</strong> — new config option ensures specific MCP servers load into every session automatically</li>
+      <li><strong>Subagents + Skills chaining</strong> — <a href="https://ofox.ai/blog/claude-code-hooks-subagents-skills-complete-guide-2026/">complete guide</a> covering how hooks, subagents, and skills compose together</li>
+    </ul>
+  </div>
+</div>
+<hr class="sep">
+
+<!-- ════════════════════ CLAUDE RELEASES ════════════════════ -->
+<div class="section">
+  <div class="section-tag tag-releases">Claude Releases</div>
+
+  <div class="item">
+    <a class="title" href="https://www.business-standard.com/technology/tech-news/anthropic-announces-claude-security-beta-for-enterprise-customers-126050100019_1.html">Claude Security enters public beta for Enterprise customers</a>
+    <div class="desc">Dedicated security product powered by Opus 4.7 — scans codebases for vulnerabilities and generates patches. CrowdStrike, Palo Alto Networks, SentinelOne, and Wiz are embedding it into their tools.</div>
+    <div class="source">Business Standard · Anthropic</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://github.com/anthropics/claude-code/releases">Claude Code v2.1.114–v2.1.119 — broad stability + feature update</a>
+    <div class="desc">Bedrock service tier selection (<code>ANTHROPIC_BEDROCK_SERVICE_TIER</code>), PR URL search in <code>/resume</code>, <code>alwaysLoad</code> for MCP servers, type-to-filter in <code>/skills</code>, auto-retry on transient MCP startup errors, and iTerm2 clipboard integration for <code>/copy</code>.</div>
+    <div class="source">GitHub · Anthropic</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://releasebot.io/updates/anthropic">Claude Cowork GA — expanded analytics + OpenTelemetry</a>
+    <div class="desc">Cowork now generally available on macOS and Windows with role-based access controls, persistent agent threads on Pro/Max, and OpenTelemetry support for enterprise observability.</div>
+    <div class="source">Releasebot · Anthropic</div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">In brief</div>
+    <ul>
+      <li><strong>Claude Mythos</strong> preview expanded — now with 11 partner organizations doing cybersecurity vulnerability research</li>
+      <li><strong>Memory for Managed Agents</strong> in public beta — persistent state across agent sessions</li>
+      <li><strong><code>/resume</code> now finds sessions by PR URL</strong> — supports GitHub, GitHub Enterprise, GitLab, and Bitbucket</li>
+      <li><strong>MCP startup auto-retry</strong> — transient errors now retry up to 3× instead of leaving servers disconnected</li>
+      <li><strong><code>.claude/skills/</code> and <code>.claude/agents/</code></strong> no longer trigger write permission prompts in <code>--dangerously-skip-permissions</code> mode</li>
+      <li><strong>Claude mobile app</strong> now renders fully interactive apps — live charts, sketch diagrams, shareable assets inline</li>
+    </ul>
+  </div>
+</div>
+<hr class="sep">
+
+<!-- ════════════════════ COMMUNITY ════════════════════ -->
+<div class="section">
+  <div class="section-tag tag-community">Community & Open Source</div>
+
+  <div class="item">
+    <a class="title" href="https://fortune.com/2026/04/24/anthropic-engineering-missteps-claude-code-performance-decline-user-backlash/">Anthropic explains Claude Code's performance decline — Fortune's coverage</a>
+    <div class="desc">Fortune's deep dive on the three engineering missteps (effort downgrade, caching bug, verbosity limit) and Anthropic's response. The post-mortem validated weeks of community complaints and set a new bar for AI company transparency.</div>
+    <div class="source">Fortune</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://claudemarketplaces.com/">Claude plugin ecosystem hits 9,000+ plugins across all marketplaces</a>
+    <div class="desc">4,200+ skills, 770+ MCP servers, 2,500+ marketplace repos. Community-maintained directories like <a href="https://github.com/quemsah/awesome-claude-plugins">awesome-claude-plugins</a> now index 14,873 repositories automatically.</div>
+    <div class="source">ClaudeMarketplaces · GitHub</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://github.com/thedotmack/claude-mem">claude-mem — automatic session memory for Claude Code</a>
+    <div class="desc">Open-source plugin that captures everything Claude does during coding sessions, compresses it with AI via the Agent SDK, and injects relevant context back into future sessions. Solves the "Claude forgot what we did yesterday" problem.</div>
+    <div class="source">GitHub · thedotmack</div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">In brief</div>
+    <ul>
+      <li><a href="https://github.com/Piebald-AI/claude-code-system-prompts"><strong>claude-code-system-prompts</strong></a> — all 24 builtin tool descriptions, sub-agent prompts, utility prompts, updated per release</li>
+      <li><a href="https://opentweet.io/twitter-mcp-server"><strong>OpenTweet MCP server</strong></a> — schedule and post tweets from Claude via natural conversation</li>
+      <li><a href="https://github.com/jeremylongshore/claude-code-plugins-plus-skills"><strong>claude-code-plugins-plus-skills</strong></a> — 423 plugins, 2,849 skills, 177 agents with <code>ccpi</code> package manager</li>
+      <li><a href="https://alexop.dev/posts/understanding-claude-code-full-stack/"><strong>Understanding Claude Code's full stack</strong></a> — practical breakdown of MCP, Skills, Subagents, and Hooks</li>
+      <li><strong>r/ClaudeAI</strong> — community consensus: <strong>LSP plugin + Context7 + structured CLAUDE.md</strong> is the current meta for Claude Code productivity</li>
+    </ul>
+  </div>
+</div>
+<hr class="sep">
+
+<!-- ════════════════════ AI LANDSCAPE ════════════════════ -->
+<div class="section">
+  <div class="section-tag tag-landscape">AI / LLM Landscape</div>
+
+  <div class="item">
+    <a class="title" href="https://www.cnbc.com/2026/04/24/deepseek-v4-llm-preview-open-source-ai-competition-china.html">DeepSeek V4 drops in preview — open-source, 1M context, rivaling closed models</a>
+    <div class="desc"><strong>V4-Pro</strong> (1.6T total / 49B active) tops LiveCodeBench at 93.5 and hits Codeforces ELO 3206, beating GPT-5.5 (3168). <strong>V4-Flash</strong> (284B / 13B active) targets cost-sensitive workloads. Both open-sourced with dual thinking/non-thinking modes.</div>
+    <div class="source">CNBC · DeepSeek</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://openai.com/index/introducing-gpt-5-5/">GPT-5.5 "Spud" now rolling out — OpenAI's most agentic model</a>
+    <div class="desc">Stronger multi-step workflows, better code debugging, and improved token efficiency. State-of-the-art at half the cost of competitive frontier coding models. Available on Plus, Pro, Business, Enterprise; API access pending security guardrails.</div>
+    <div class="source">OpenAI</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/">Gemini 3.1 Flash-Lite — Google's most cost-efficient model yet</a>
+    <div class="desc">1M token context, $0.25/M input tokens, 2.5× faster TTFA and 45% faster output than 2.5 Flash. Full multimodal support. Designed for high-volume, cost-sensitive production traffic.</div>
+    <div class="source">Google</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://www.washingtonpost.com/wp-intelligence/ai-tech-brief/2026/04/21/ai-tech-brief-post-llm-era-begins/">Washington Post: "The post-LLM era begins"</a>
+    <div class="desc">The competitive axis has shifted from "AI that answers" to "AI that gets things done" — long context, planning, tool use, verification, and task completion. The density of April releases created real pricing pressure; cost of frontier inference dropped roughly 50% this month.</div>
+    <div class="source">Washington Post</div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">More signal</div>
+    <ul>
+      <li><a href="https://api-docs.deepseek.com/news/news260424"><strong>DeepSeek V4 API live</strong></a> — <code>deepseek-chat</code> and <code>deepseek-reasoner</code> deprecated July 24</li>
+      <li><a href="https://aithority.com/machine-learning/from-gpt-5-5-to-deepseek-v4-how-developers-are-building-smarter-ai-agents-with-multi-model-routing-in-2026/"><strong>Multi-model routing</strong></a> emerging as the standard — route between GPT-5.5, DeepSeek V4, and Claude Opus 4.7 by task type</li>
+      <li><strong>Gemini Nano Banana 2</strong> — fast image gen model built on 3.1 Flash, improved text rendering and instruction following</li>
+      <li><strong>Llama 4 Behemoth</strong> still unreleased — pushed from summer to fall 2026 or later; currently used as a teacher model for Scout/Maverick</li>
+      <li><a href="https://spectrum.ieee.org/state-of-ai-index-2026"><strong>Stanford AI Index 2026</strong></a> — comprehensive state-of-the-field report now published</li>
+      <li><a href="https://af.net/realtime/ai-model-benchmarks-april-2026-comparing-gpt-5-claude-4-6-gemini-3/"><strong>April 2026 benchmark roundup</strong></a> — Claude Opus 4.6 and Gemini 3.1 Pro both top 50% on Humanity's Last Exam</li>
+      <li><strong>April 2026 = most intense month</strong> in AI history: GPT-5.5, DeepSeek V4, Claude Opus 4.7, Gemini 3.1, Llama 4, Qwen 3, Mistral Medium 3 all within six weeks</li>
+    </ul>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Claude & AI Weekly #3 · Curated by Claude</p>
+  <p>Next issue · Friday, May 8</p>
+</div>
+
+</div>
+</body>
+</html>

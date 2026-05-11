@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude & AI Weekly — Issue #1, April 23, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF8;
+  --surface: #FFFFFF;
+  --text: #1a1a1a;
+  --text-mid: #4a4a4a;
+  --text-muted: #8a8a8a;
+  --border: #e8e6e1;
+  --accent: #6B5CE7;
+  --accent-soft: #F0EEFF;
+  --link: #4338CA;
+  --tag-tips-bg: #FEF3C7; --tag-tips-text: #92400E;
+  --tag-spot-bg: #DBEAFE; --tag-spot-text: #1E40AF;
+  --tag-rel-bg: #EDE9FE; --tag-rel-text: #5B21B6;
+  --tag-comm-bg: #D1FAE5; --tag-comm-text: #065F46;
+  --tag-ai-bg: #FFE4E6; --tag-ai-text: #9F1239;
+  --callout-bg: #F8F7F4;
+  --callout-border: #E8E6E1;
+  --mono: 'IBM Plex Mono', monospace;
+  --sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141413;
+    --surface: #1C1C1A;
+    --text: #E8E6E1;
+    --text-mid: #B0ADA6;
+    --text-muted: #6B6862;
+    --border: #2E2D2A;
+    --accent: #9B8FFF;
+    --accent-soft: #1E1A3A;
+    --link: #A5B4FC;
+    --tag-tips-bg: #422006; --tag-tips-text: #FDE68A;
+    --tag-spot-bg: #1E3A5F; --tag-spot-text: #93C5FD;
+    --tag-rel-bg: #2E1065; --tag-rel-text: #C4B5FD;
+    --tag-comm-bg: #064E3B; --tag-comm-text: #6EE7B7;
+    --tag-ai-bg: #4C0519; --tag-ai-text: #FDA4AF;
+    --callout-bg: #1E1E1C;
+    --callout-border: #2E2D2A;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--sans); font-size: 15px; line-height: 1.6; color: var(--text); background: var(--bg); padding: 2rem 1rem; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 600px; margin: 0 auto; }
+
+/* ── Header ── */
+.masthead { text-align: center; padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+.masthead .issue { font-family: var(--mono); font-size: 12px; color: var(--text-muted); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 12px; }
+.masthead h1 { font-size: 28px; font-weight: 600; color: var(--text); letter-spacing: -0.5px; }
+.masthead h1 span { color: var(--accent); }
+.masthead .tagline { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
+
+/* ── Section tags ── */
+.section { margin-bottom: 2.5rem; }
+.section-tag { display: inline-block; font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; margin-bottom: 16px; }
+.tag-tips { background: var(--tag-tips-bg); color: var(--tag-tips-text); }
+.tag-spotlight { background: var(--tag-spot-bg); color: var(--tag-spot-text); }
+.tag-releases { background: var(--tag-rel-bg); color: var(--tag-rel-text); }
+.tag-community { background: var(--tag-comm-bg); color: var(--tag-comm-text); }
+.tag-landscape { background: var(--tag-ai-bg); color: var(--tag-ai-text); }
+
+/* ── Items ── */
+.item { margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.item:last-of-type { border-bottom: none; }
+.item a.title { font-weight: 500; font-size: 15px; color: var(--link); text-decoration: none; line-height: 1.4; }
+.item a.title:hover { text-decoration: underline; }
+.item .desc { font-size: 13.5px; color: var(--text-mid); margin-top: 3px; line-height: 1.5; }
+.item .source { font-family: var(--mono); font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+
+/* ── Callout box ── */
+.callout { background: var(--callout-bg); border: 1px solid var(--callout-border); border-radius: 6px; padding: 14px 16px; margin: 16px 0 4px; }
+.callout .callout-label { font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 8px; }
+.callout ul { padding-left: 16px; font-size: 13px; color: var(--text-mid); line-height: 1.55; }
+.callout li { margin-bottom: 6px; }
+.callout a { color: var(--link); text-decoration: none; }
+.callout a:hover { text-decoration: underline; }
+.callout code { font-family: var(--mono); font-size: 12px; background: var(--accent-soft); padding: 1px 5px; border-radius: 3px; }
+.callout strong { font-weight: 600; color: var(--text); }
+
+/* ── Spotlight card ── */
+.spotlight { background: var(--accent-soft); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; margin-bottom: 16px; }
+.spotlight .spot-label { font-family: var(--mono); font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.spotlight .spot-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.spotlight .spot-desc { font-size: 13.5px; color: var(--text-mid); line-height: 1.5; }
+
+/* ── Tip cards ── */
+.tip { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 10px; }
+.tip .tip-label { font-family: var(--mono); font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 4px; }
+.tip .tip-text { font-size: 13.5px; color: var(--text-mid); line-height: 1.5; }
+.tip .tip-text strong { color: var(--text); }
+.tip a { color: var(--link); text-decoration: none; }
+.tip a:hover { text-decoration: underline; }
+.tip code { font-family: var(--mono); font-size: 12px; background: var(--accent-soft); padding: 1px 5px; border-radius: 3px; }
+
+/* ── Divider ── */
+.sep { border: none; border-top: 1px solid var(--border); margin: 0 0 2.5rem; }
+
+/* ── Footer ── */
+.footer { text-align: center; padding: 2rem 0 1rem; border-top: 1px solid var(--border); margin-top: 1rem; }
+.footer p { font-family: var(--mono); font-size: 11px; color: var(--text-muted); line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<div class="masthead">
+  <div class="issue">#1 · April 23, 2026</div>
+  <h1>Claude <span>&</span> AI Weekly</h1>
+  <div class="tagline">Features, tips, community, and the broader AI landscape — in 5 minutes</div>
+</div>
+
+<!-- ════════════════════ TIPS & TRICKS ════════════════════ -->
+<div class="section">
+  <div class="section-tag tag-tips">Tips & Tricks</div>
+
+  <div class="tip">
+    <div class="tip-label">Community consensus</div>
+    <div class="tip-text"><strong>Context engineering > prompt engineering.</strong> Structuring what Claude receives — system prompts, files, memory, examples, role framing — matters more than clever wording. Treat prompts as data pipelines, not magic spells. <a href="https://www.the-ai-corner.com/p/claude-best-practices-power-user-guide-2026">Full guide →</a></div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">Boris Cherny · Claude Code creator · Apr 16</div>
+    <div class="tip-text"><strong>6 tips for Opus 4.7 in Claude Code:</strong> use Auto mode for permission automation, tune effort levels (<code>xhigh</code> for complex tasks), always add a verification step, and keep <code>CLAUDE.md</code> under 200 lines — instruction adherence measurably drops past that. <a href="https://github.com/shanraisshan/claude-code-best-practice/blob/main/tips/claude-boris-6-tips-16-apr-26.md">Read tips →</a></div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">Prompting technique</div>
+    <div class="tip-text"><strong>Let Claude interview you before starting.</strong> For ambiguous tasks, give a minimal prompt and ask Claude to ask you questions. It surfaces edge cases, tradeoffs, and implementation details you hadn't considered. Works especially well with <code>/plan</code> in Claude Code.</div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">Worth your time</div>
+    <div class="tip-text"><strong>MCP is the new API.</strong> Model Context Protocol is becoming the standard integration layer. Most devs need 2–3 MCP servers (GitHub, filesystem, one domain-specific) plus a few custom Skills. <a href="https://claudemarketplaces.com/">Browse 150+ plugins →</a></div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">More to explore</div>
+    <ul>
+      <li><a href="https://miraflow.ai/blog/claude-opus-4-7-prompting-best-practices-2026"><strong>15 Opus 4.7 prompting techniques</strong></a> that actually change output quality</li>
+      <li><a href="https://github.com/shanraisshan/claude-code-best-practice"><strong>claude-code-best-practice</strong></a> repo — 20k+ stars, 84 compiled best practices</li>
+      <li><a href="https://www.thevccorner.com/p/claude-skills-complete-guide-2026"><strong>Claude Skills complete guide</strong></a> — build once, compound every day</li>
+      <li><a href="https://nexasphere.io/blog/claude-ai-tips-tricks-2026"><strong>25 ways to get better results</strong></a> from Claude in 2026</li>
+    </ul>
+  </div>
+</div>
+<hr class="sep">
+
+<!-- ════════════════════ FEATURE SPOTLIGHT ════════════════════ -->
+<div class="section">
+  <div class="section-tag tag-spotlight">Feature Spotlight</div>
+
+  <div class="spotlight">
+    <div class="spot-label">This week</div>
+    <div class="spot-title">Claude Skills</div>
+    <div class="spot-desc">A Skill is a saved, reusable workflow Claude triggers automatically when context matches. Teach Claude a task once, refine it, save it — Claude applies it consistently without re-explaining. Think personal Claude plugin built from your own expertise.</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://www.thevccorner.com/p/claude-skills-complete-guide-2026">Claude Skills complete guide — build once, compound every day</a>
+    <div class="desc">Deep dive into creating, managing, and chaining Skills. Full lifecycle from initial prompt to production-ready skill with examples.</div>
+    <div class="source">The VC Corner</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://code.claude.com/docs/en/best-practices">Official best practices for Claude Code</a>
+    <div class="desc">Anthropic's own guide covering Plan Mode, CLAUDE.md setup, verification patterns, and real-world workflows. Read this first.</div>
+    <div class="source">Claude Code Docs</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://github.com/FlorianBruniaux/claude-code-ultimate-guide">Claude Code Ultimate Guide — beginner to power user</a>
+    <div class="desc">Community repo with production-ready templates, agentic workflow guides, quizzes, and a cheatsheet.</div>
+    <div class="source">GitHub · Florian Bruniaux</div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Also worth learning</div>
+    <ul>
+      <li><strong>Ultraplan</strong> (early preview) — draft plans in CLI, review in web editor, run remotely or pull back local</li>
+      <li><strong>Monitor tool</strong> — streams background events into conversation, Claude can tail logs and react live</li>
+      <li><strong>Computer use in CLI</strong> (research preview) — open native apps, click through UI, verify changes from terminal</li>
+      <li><strong><code>/autofix-pr</code></strong> — turn on PR auto-fix directly from the terminal</li>
+    </ul>
+  </div>
+</div>
+<hr class="sep">
+
+<!-- ════════════════════ CLAUDE RELEASES ════════════════════ -->
+<div class="section">
+  <div class="section-tag tag-releases">Claude Releases</div>
+
+  <div class="item">
+    <a class="title" href="https://techcrunch.com/2026/04/17/anthropic-launches-claude-design-a-new-product-for-creating-quick-visuals/">Claude Design launched — create visuals, prototypes, slides directly with Claude</a>
+    <div class="desc">New Anthropic Labs product powered by Opus 4.7. Research preview for Pro, Max, Team, Enterprise. Supports export and Claude Code handoff.</div>
+    <div class="source">TechCrunch</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://releasebot.io/updates/anthropic/claude">Claude Opus 4.7 is generally available</a>
+    <div class="desc">Stronger software engineering, better vision (higher-res images), sharper instruction following. Same pricing as Opus 4.6 — $5/$25 per MTok. Claude Code gets xhigh effort + Auto mode for Max subs.</div>
+    <div class="source">Anthropic</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://af.net/realtime/anthropic-announces-major-enhancements-to-claude-code-in-april-2026-update/">Claude Cowork now GA on macOS and Windows</a>
+    <div class="desc">Expanded capabilities including computer use for Dispatch, inline charts/diagrams, improved Excel and PowerPoint add-ins with full conversation context.</div>
+    <div class="source">Anthropic</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://red.anthropic.com/2026/mythos-preview/">Claude Mythos preview on red.anthropic.com</a>
+    <div class="desc">Anthropic's red team site published a preview for Mythos — details still emerging.</div>
+    <div class="source">Anthropic Red Team</div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">In brief</div>
+    <ul>
+      <li><strong>Claude Managed Agents</strong> in public beta — autonomous agent harness with secure sandboxing + SSE streaming</li>
+      <li>New <code>ant</code> CLI for faster API interaction with YAML resource versioning</li>
+      <li>Claude Code: <code>/team-onboarding</code>, <code>/recap</code>, 1-hour prompt cache TTL, push notifications, flicker-free <code>/tui</code></li>
+      <li>Prompt caching controls for API key, Bedrock, Vertex, Foundry — forced 5-min TTL option</li>
+    </ul>
+  </div>
+</div>
+<hr class="sep">
+
+<!-- ════════════════════ COMMUNITY ════════════════════ -->
+<div class="section">
+  <div class="section-tag tag-community">Community & Open Source</div>
+
+  <div class="item">
+    <a class="title" href="https://venturebeat.com/orchestration/anthropic-just-shipped-an-openclaw-killer-called-claude-code-channels">Claude Code Channels — connect Claude Code to Discord and Telegram</a>
+    <div class="desc">Anthropic's response to OpenClaw. Agentic workflows over chat. Community on X: impressed by shipping speed — texting, MCP skills, and autonomous bug-fixing in four weeks.</div>
+    <div class="source">VentureBeat</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://techcrunch.com/2026/04/10/anthropic-temporarily-banned-openclaws-creator-from-accessing-claude/">Anthropic temporarily banned OpenClaw's creator — then reversed</a>
+    <div class="desc">Peter Steinberger's account suspended after third-party harness billing split. Reinstated after the post went viral. OpenClaw users now pay separately via API.</div>
+    <div class="source">TechCrunch</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://alex000kim.com/posts/2026-03-31-claude-code-source-leak/">The Claude Code source leak — fake tools, frustration regexes, undercover mode</a>
+    <div class="desc">Chaofan Shou's thread hit 16M views on X. Devs found interesting internals; some already translated the codebase to Python.</div>
+    <div class="source">Alex Kim</div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">In brief</div>
+    <ul>
+      <li>Claude Code extension ecosystem updates — improved MCP server management, background agents, worktree isolation</li>
+      <li>OpenClaw pricing split from Claude subscriptions — third-party harness users billed separately via API</li>
+    </ul>
+  </div>
+</div>
+<hr class="sep">
+
+<!-- ════════════════════ AI LANDSCAPE ════════════════════ -->
+<div class="section">
+  <div class="section-tag tag-landscape">AI / LLM Landscape</div>
+
+  <div class="item">
+    <a class="title" href="https://techcrunch.com/2026/04/21/chatgpts-new-images-2-0-model-is-surprisingly-good-at-generating-text/">ChatGPT Images 2.0 — native reasoning, 2K res, #1 on Image Arena</a>
+    <div class="desc">OpenAI's <code>gpt-image-2</code> claimed top spot across every Image Arena category (+242 pts) within 12 hours. Text rendering is now print-ready.</div>
+    <div class="source">TechCrunch · OpenAI</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://llm-stats.com/llm-updates">DeepSeek R2 — rivals o3 reasoning at 70% lower cost</a>
+    <div class="desc">92.7% on AIME 2025, 89.4% on MATH-500. Pricing undercuts comparable Western models significantly.</div>
+    <div class="source">DeepSeek</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://llm-stats.com/ai-news">Meta open-sources Llama 4 Scout — 17B vision-language model for edge</a>
+    <div class="desc">Competitive vision benchmarks, runs full speed on a single consumer GPU or M4 Pro.</div>
+    <div class="source">Meta AI</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://fazm.ai/blog/llm-news-april-2026">Gemini 3.1 Pro GA on Vertex AI — 2M token context in production</a>
+    <div class="desc">Document-level caching for entire codebases, improved Google Search grounding.</div>
+    <div class="source">Google</div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">More signal</div>
+    <ul>
+      <li><strong>Mistral Large 3</strong> — structured output, function calling, JSON mode + EU data residency</li>
+      <li><strong>OpenAI GPT-Rosalind</strong> — new model for life sciences research (Apr 16)</li>
+      <li><strong>OpenAI workspace agents</strong> — cloud-based agents across ChatGPT + Slack for Business/Enterprise</li>
+      <li><strong>GPT-5.4-Cyber</strong> — demoed to ~50 federal cyber defense practitioners in D.C.</li>
+      <li><strong>Google: 75% of new code</strong> at the company is now AI-generated (up from 50% last fall)</li>
+      <li><strong>TurboQuant</strong> (ICLR 2026) — KV cache compression via PolarQuant + JL compression</li>
+      <li><strong>Neural + symbolic reasoning</strong> cuts AI energy use by 100x while improving accuracy</li>
+      <li><strong>EU AI Act clarification</strong> — open-weight models under 10B params get lighter compliance</li>
+      <li><strong>ChatGPT massive outage</strong> on April 20</li>
+      <li><strong>OpenAI raised $122B</strong> to accelerate the next phase of AI</li>
+    </ul>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Claude & AI Weekly #1 · Curated by Claude</p>
+  <p>Next issue · Friday, May 1</p>
+</div>
+
+</div>
+</body>
+</html>
