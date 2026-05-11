@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Claude & AI Weekly — Issue #4, May 8, 2026</title>
+<title>Claude & AI Weekly. Issue #4, May 8, 2026</title>
 <base target="_blank">
 <script>
   // Apply persisted theme before paint to avoid flash
@@ -46,7 +46,7 @@
   --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --mono: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
 }
-/* Dark theme — applies when system is dark AND no explicit override,
+/* Dark theme. Applies when system is dark AND no explicit override,
    OR when data-theme="dark" is explicitly set. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -550,7 +550,7 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
 <div class="masthead">
   <div class="issue">#4 · May 8, 2026</div>
   <h1>Claude <span>&</span> AI Weekly</h1>
-  <div class="tagline">Features, tips, community, and the broader AI landscape — in 5 minutes</div>
+  <div class="tagline">Features, tips, community, and the broader AI landscape. In 5 minutes</div>
 </div>
 
 <!-- ════════════════════ TIPS & TRICKS ════════════════════ -->
@@ -559,32 +559,32 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
 
   <div class="tip">
     <div class="tip-label">Context engineering · The AI Corner</div>
-    <div class="tip-text"><strong>Context engineering has replaced prompt engineering as the real leverage point.</strong> Your context window — what you load, in what order, with what structure — almost always matters more than how you phrase the ask. Build a persistent context system (CLAUDE.md, indexed docs, pinned files via <code>@</code>) before you write the prompt. <a href="https://www.the-ai-corner.com/p/claude-best-practices-power-user-guide-2026">Power user guide →</a></div>
+    <div class="tip-text"><strong>Context engineering has replaced prompt engineering as the real leverage point.</strong> Your context window. What you load, in what order, with what structure. Almost always matters more than how you phrase the ask. Build a persistent context system (CLAUDE.md, indexed docs, pinned files via <code>@</code>) before you write the prompt. <a href="https://www.the-ai-corner.com/p/claude-best-practices-power-user-guide-2026">Power user guide →</a></div>
   </div>
 
   <div class="tip">
     <div class="tip-label">Context hygiene · Builder.io</div>
-    <div class="tip-text"><strong>Treat the context window like RAM, not storage.</strong> Performance degrades as it fills. <code>/clear</code> between unrelated tasks, <strong>compact at ~70%</strong> usage, delegate research to subagents, and scope each task narrowly. The community consensus from the May 2026 surveys is that this single discipline — keeping sessions short and focused — separates 2× users from 10× users. <a href="https://www.builder.io/blog/claude-code-tips-best-practices">50 Claude Code tips →</a></div>
+    <div class="tip-text"><strong>Treat the context window like RAM, not storage.</strong> Performance degrades as it fills. <code>/clear</code> between unrelated tasks, <strong>compact at ~70%</strong> usage, delegate research to subagents, and scope each task narrowly. The community consensus from the May 2026 surveys is that this single discipline. Keeping sessions short and focused. Separates 2× users from 10× users. <a href="https://www.builder.io/blog/claude-code-tips-best-practices">50 Claude Code tips →</a></div>
   </div>
 
   <div class="tip">
     <div class="tip-label">Verification loops · Boris Cherny</div>
-    <div class="tip-text"><strong>Hand Claude its own grader.</strong> Include the test command, linter, or expected output directly in the prompt — Claude runs the check, sees the failure, and fixes itself without you stepping in. Boris Cherny says this single pattern delivers a <strong>2–3× quality improvement</strong>. Pairs perfectly with PostToolUse hooks for continuous auto-validation. <a href="https://code.claude.com/docs/en/best-practices">Official best practices →</a></div>
+    <div class="tip-text"><strong>Hand Claude its own grader.</strong> Include the test command, linter, or expected output directly in the prompt. Claude runs the check, sees the failure, and fixes itself without you stepping in. Boris Cherny says this single pattern delivers a <strong>2–3× quality improvement</strong>. Pairs perfectly with PostToolUse hooks for continuous auto-validation. <a href="https://code.claude.com/docs/en/best-practices">Official best practices →</a></div>
   </div>
 
   <div class="tip">
     <div class="tip-label">Frontend prompting · 2026 update</div>
-    <div class="tip-text"><strong>Prompt Opus 4.7 less for frontend, not more.</strong> Old habit was writing 200 lines of design specs to dodge generic Tailwind output. With 4.7's vision and design improvements, minimal guidance now produces more distinctive, creative UIs — over-prompting actively hurts. Describe the feel and let it pick the visual language. <a href="https://venturebeat.com/technology/anthropic-just-launched-claude-design-an-ai-tool-that-turns-prompts-into-prototypes-and-challenges-figma">Why Claude Design ships well →</a></div>
+    <div class="tip-text"><strong>Prompt Opus 4.7 less for frontend, not more.</strong> Old habit was writing 200 lines of design specs to dodge generic Tailwind output. With 4.7's vision and design improvements, minimal guidance now produces more distinctive, creative UIs. Over-prompting actively hurts. Describe the feel and let it pick the visual language. <a href="https://venturebeat.com/technology/anthropic-just-launched-claude-design-an-ai-tool-that-turns-prompts-into-prototypes-and-challenges-figma">Why Claude Design ships well →</a></div>
   </div>
 
   <div class="callout">
     <div class="callout-label">More to explore</div>
     <ul>
-      <li><a href="https://simonwillison.net/2026/May/6/code-w-claude-2026/"><strong>Simon Willison's Code w/ Claude live blog</strong></a> — the canonical recap of the May 6 keynote, every announcement in one scrollable page</li>
-      <li><a href="https://www.generative.inc/the-complete-claude-code-guide-2026-planning-context-engineering-and-high-leverage-development"><strong>Complete Claude Code Guide (2026)</strong></a> — planning, context engineering, and high-leverage workflows in one long-read</li>
-      <li><a href="https://www.morphllm.com/claude-code-best-practices"><strong>Morph's 10× productivity guide</strong></a> — opinionated, fresh-for-May, lots of copy-paste templates</li>
-      <li><a href="https://www.aipromptlibrary.app/blog/claude-ai-prompts-guide"><strong>100 Claude prompts I actually use</strong></a> — free templates organized by task type</li>
-      <li><a href="https://nexasphere.io/blog/claude-ai-tips-tricks-2026"><strong>25 ways to get better Claude results (2026)</strong></a> — covers XML tag structuring, role anchoring, and the "interview-me-first" pattern for ambiguous specs</li>
+      <li><a href="https://simonwillison.net/2026/May/6/code-w-claude-2026/"><strong>Simon Willison's Code w/ Claude live blog</strong></a>. The canonical recap of the May 6 keynote, every announcement in one scrollable page</li>
+      <li><a href="https://www.generative.inc/the-complete-claude-code-guide-2026-planning-context-engineering-and-high-leverage-development"><strong>Complete Claude Code Guide (2026)</strong></a>. Planning, context engineering, and high-leverage workflows in one long-read</li>
+      <li><a href="https://www.morphllm.com/claude-code-best-practices"><strong>Morph's 10× productivity guide</strong></a>. Opinionated, fresh-for-May, lots of copy-paste templates</li>
+      <li><a href="https://www.aipromptlibrary.app/blog/claude-ai-prompts-guide"><strong>100 Claude prompts I actually use</strong></a>. Free templates organized by task type</li>
+      <li><a href="https://nexasphere.io/blog/claude-ai-tips-tricks-2026"><strong>25 ways to get better Claude results (2026)</strong></a>. Covers XML tag structuring, role anchoring, and the "interview-me-first" pattern for ambiguous specs</li>
     </ul>
   </div>
 </div>
@@ -597,23 +597,23 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
   <div class="spotlight">
     <div class="spot-label">This week</div>
     <div class="spot-title">Claude Code Plan Mode</div>
-    <div class="spot-desc">A gate, not magic. Plan Mode forces Claude to draft a full written plan before touching any file — you review, edit, or reject before execution begins. Toggle with <strong>Shift+Tab twice</strong> from any prompt; the footer confirms it's on. The community treatment in May has been near-unanimous: skip Plan Mode and you're collapsing 20 ambiguous decisions onto Claude in real time, with each landing somewhere around 70% confidence. Plan Mode pre-resolves those decisions to ~100% before code is written. Use it for any change touching <strong>3+ files</strong>, schema changes, or security-sensitive code.</div>
+    <div class="spot-desc">A gate, not magic. Plan Mode forces Claude to draft a full written plan before touching any file. You review, edit, or reject before execution begins. Toggle with <strong>Shift+Tab twice</strong> from any prompt. The footer confirms it's on. The community read in May was near-unanimous. Skip Plan Mode and you collapse 20 ambiguous decisions onto Claude in real time, each landing around 70% confidence. Plan Mode pre-resolves those decisions to ~100% before code is written. Use it for any change touching <strong>3+ files</strong>, schema changes, or security-sensitive code.</div>
   </div>
 
   <div class="item">
     <a class="title" href="https://www.anyonebuilds.com/guides/claude-code-plan-mode">Claude Code Plan Mode: The Complete 2026 Guide</a>
-    <div class="desc">The most thorough walkthrough — when to enable it, how the plan-review-execute loop works in practice, common failure modes, and how Plan Mode composes with subagents and Skills.</div>
+    <div class="desc">The most thorough walkthrough. When to enable it, how the plan-review-execute loop works in practice, common failure modes, and how Plan Mode composes with subagents and Skills.</div>
     <div class="source">Anyone Builds</div>
   </div>
 
   <div class="item">
     <a class="title" href="https://www.claudedirectory.org/blog/claude-code-plan-mode-guide">When to use Plan Mode (and when to skip it)</a>
-    <div class="desc">Decision framework for Plan Mode vs. direct execution — multi-file refactors and schema work always; tiny edits and read-only Q&A almost never. Includes the productivity numbers from teams that adopted Plan-Mode-by-default in April.</div>
+    <div class="desc">Decision framework for Plan Mode vs. direct execution. Multi-file refactors and schema work always. Tiny edits and read-only Q&A almost never. Includes the productivity numbers from teams that adopted Plan-Mode-by-default in April.</div>
     <div class="source">Claude Directory</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://code.claude.com/docs/en/common-workflows">Official common workflows — Plan Mode reference</a>
+    <a class="title" href="https://code.claude.com/docs/en/common-workflows">Official common workflows. Plan Mode reference</a>
     <div class="desc">Anthropic's own documentation covering Plan Mode triggers, how plans are persisted, and how to compose it with the new outcomes feature in Managed Agents.</div>
     <div class="source">Claude Code Docs</div>
   </div>
@@ -621,11 +621,11 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
   <div class="callout">
     <div class="callout-label">Also worth learning</div>
     <ul>
-      <li><strong>Dreaming</strong> (research preview, May 6) — Managed Agents now scan past sessions, extract recurring patterns, and curate memories so future runs self-improve</li>
-      <li><strong>Multi-agent orchestration</strong> (public beta) — a lead agent breaks a job into subtasks and delegates each to a specialist with its own model, prompt, and tools, all on a shared filesystem</li>
-      <li><strong>Outcomes</strong> — declare what success looks like; Claude iterates against the criterion until it hits, instead of stopping at "done-ish"</li>
-      <li><strong>Webhooks for Managed Agents</strong> — fire HTTP calls on state changes; pairs with multi-agent orchestration for event-driven pipelines</li>
-      <li><strong>Claude Design</strong> (research preview) — Opus 4.7-powered visual workspace that reads your codebase + design files to extract a design system, then reuses it across prototypes, slides, and one-pagers</li>
+      <li><strong>Dreaming</strong> (research preview, May 6). Managed Agents now scan past sessions, extract recurring patterns, and curate memories so future runs self-improve</li>
+      <li><strong>Multi-agent orchestration</strong> (public beta). A lead agent breaks a job into subtasks and delegates each to a specialist with its own model, prompt, and tools, all on a shared filesystem</li>
+      <li><strong>Outcomes</strong>. Declare what success looks like. Claude iterates against the criterion until it hits, instead of stopping at "done-ish"</li>
+      <li><strong>Webhooks for Managed Agents</strong>. Fire HTTP calls on state changes. Pairs with multi-agent orchestration for event-driven pipelines</li>
+      <li><strong>Claude Design</strong> (research preview). Opus 4.7-powered visual workspace that reads your codebase + design files to extract a design system, then reuses it across prototypes, slides, and one-pagers</li>
     </ul>
   </div>
 </div>
@@ -637,7 +637,7 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
 
   <div class="item">
     <a class="title" href="https://claude.com/blog/new-in-claude-managed-agents">Managed Agents adds Dreaming, Outcomes, and multi-agent orchestration</a>
-    <div class="desc">The headline ship from Code w/ Claude (May 6). <strong>Dreaming</strong> turns post-session reflection into curated memories; <strong>Outcomes</strong> let agents iterate against success criteria; <strong>multi-agent orchestration</strong> lets a lead agent fan out to specialist sub-agents on a shared filesystem and pull their results back into its own context.</div>
+    <div class="desc">The headline ship from Code w/ Claude (May 6). <strong>Dreaming</strong> turns post-session reflection into curated memories. <strong>Outcomes</strong> let agents iterate against success criteria. <strong>multi-agent orchestration</strong> lets a lead agent fan out to specialist sub-agents on a shared filesystem and pull their results back into its own context.</div>
     <div class="source">Anthropic · SD Times</div>
   </div>
 
@@ -649,12 +649,12 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
 
   <div class="item">
     <a class="title" href="https://www.anthropic.com/news/finance-agents">Ten preconfigured Claude agents for financial services</a>
-    <div class="desc">Drop-in templates for investment banks, asset managers, and insurers — Pitch builder, Meeting preparer, Earnings reviewer, Model builder, Market researcher, KYC screener, and more. Run as Cowork/Code plugins or as autonomous Managed Agents. Connectors include Moody's, D&amp;B, Verisk, Guidepoint, IBISWorld.</div>
+    <div class="desc">Drop-in templates for investment banks, asset managers, and insurers. Pitch builder, Meeting preparer, Earnings reviewer, Model builder, Market researcher, KYC screener, and more. Run as Cowork/Code plugins or as autonomous Managed Agents. Connectors include Moody's, D&amp;B, Verisk, Guidepoint, IBISWorld.</div>
     <div class="source">Anthropic · Bloomberg</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://github.com/anthropics/claude-code/releases">Claude Code — plugin URLs, gateway model discovery, project purge</a>
+    <a class="title" href="https://github.com/anthropics/claude-code/releases">Claude Code. Plugin URLs, gateway model discovery, project purge</a>
     <div class="desc">New <code>--plugin-url &lt;url&gt;</code> flag fetches a plugin <code>.zip</code> from a URL for the current session. <code>/model</code> picker now reads from your gateway's <code>/v1/models</code> endpoint when <code>ANTHROPIC_BASE_URL</code> points at a compatible gateway. <code>claude project purge [path]</code> wipes all Claude Code state for a project.</div>
     <div class="source">GitHub · Anthropic</div>
   </div>
@@ -662,13 +662,13 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
   <div class="callout">
     <div class="callout-label">In brief</div>
     <ul>
-      <li><strong>Code w/ Claude SF</strong> (May 6) — keynote, workshops, and the formal debut of <strong>Claude Code on Desktop</strong>, the third surface alongside CLI and IDE</li>
-      <li><strong>Code Review</strong> feature shipped — now used by every team inside Anthropic; built on the public Claude Agent SDK</li>
-      <li><strong>Connector expansion</strong> beyond work tools — AllTrails, Instacart, Audible, Tripadvisor, Uber, and Spotify now first-class connectors in chat</li>
-      <li><strong>VS Code activation fix on Windows</strong> — resolved the hardcoded build path bug that broke the bundled SDK</li>
-      <li><strong>Mantle endpoint auth fixed</strong> — missing <code>x-api-key</code> header bug resolved</li>
+      <li><strong>Code w/ Claude SF</strong> (May 6). Keynote, workshops, and the formal debut of <strong>Claude Code on Desktop</strong>, the third surface alongside CLI and IDE</li>
+      <li><strong>Code Review</strong> feature shipped. Now used by every team inside Anthropic. Built on the public Claude Agent SDK</li>
+      <li><strong>Connector expansion</strong> beyond work tools. AllTrails, Instacart, Audible, Tripadvisor, Uber, and Spotify now first-class connectors in chat</li>
+      <li><strong>VS Code activation fix on Windows</strong>. Resolved the hardcoded build path bug that broke the bundled SDK</li>
+      <li><strong>Mantle endpoint auth fixed</strong>. Missing <code>x-api-key</code> header bug resolved</li>
       <li><strong>X.509 cert-based Workload Identity Federation</strong> for Vertex AI now supported</li>
-      <li><strong>iTerm2 clipboard integration</strong> for <code>/copy</code> shipped; auto-retry on transient MCP startup errors active</li>
+      <li><strong>iTerm2 clipboard integration</strong> for <code>/copy</code> shipped. Auto-retry on transient MCP startup errors active</li>
     </ul>
   </div>
 </div>
@@ -680,7 +680,7 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
 
   <div class="item">
     <a class="title" href="https://simonwillison.net/2026/May/6/code-w-claude-2026/">Simon Willison's Code w/ Claude live blog</a>
-    <div class="desc">The de-facto canonical recap. Real-time notes from the SF keynote, demos, and hallway conversations — the only writeup that captures both the announcements and what was conspicuously missing. Already cited by every secondary source.</div>
+    <div class="desc">The de-facto canonical recap. Real-time notes from the SF keynote, demos, and hallway conversations. The only writeup that captures both the announcements and what was conspicuously missing. Already cited by every secondary source.</div>
     <div class="source">simonwillison.net</div>
   </div>
 
@@ -691,7 +691,7 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
   </div>
 
   <div class="item">
-    <a class="title" href="https://github.com/jeremylongshore/claude-code-plugins-plus-skills">claude-code-plugins-plus-skills — now 425/2,810/200</a>
+    <a class="title" href="https://github.com/jeremylongshore/claude-code-plugins-plus-skills">claude-code-plugins-plus-skills. Now 425/2,810/200</a>
     <div class="desc">Community super-marketplace updated mid-week: <strong>425 plugins, 2,810 skills, 200 agents</strong> with the <code>ccpi</code> CLI package manager. Mirrored at tonsofskills.com. Ships weekly community curation alongside the auto-indexed listings.</div>
     <div class="source">GitHub · jeremylongshore</div>
   </div>
@@ -699,12 +699,12 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
   <div class="callout">
     <div class="callout-label">In brief</div>
     <ul>
-      <li><a href="https://github.com/Piebald-AI/claude-code-system-prompts"><strong>claude-code-system-prompts</strong></a> — refreshed for this week's release; all 24 builtin tool descriptions, sub-agent prompts, and utility prompts</li>
-      <li><a href="https://opentweet.io/blog/build-ai-twitter-content-system-claude-guide"><strong>Build a Twitter content system with Claude</strong></a> — end-to-end pipeline using the OpenTweet MCP server</li>
-      <li><strong>Claude for Open Source</strong> — applications open through <strong>June 30, 2026</strong>, up to 10,000 recipients on a rolling basis</li>
-      <li><a href="https://composio.dev/toolkits/twitter/framework/claude-code"><strong>Composio's Twitter MCP toolkit</strong></a> — drop-in MCP for Claude Code, no API wrangling</li>
-      <li><strong>r/ClaudeAI consensus</strong> — Plan Mode + CLAUDE.md + LSP plugin is the new "starter pack" recommended to every newcomer</li>
-      <li><strong>Claude Code source leak</strong> follow-up — Frank Pereny's <a href="https://www.franksworld.com/2026/04/02/the-claude-code-leak-a-new-chapter-in-open-source-ai/">analysis</a> still circulating; community has built mirror tools to introspect the leaked 512K-line bundle</li>
+      <li><a href="https://github.com/Piebald-AI/claude-code-system-prompts"><strong>claude-code-system-prompts</strong></a>. Refreshed for this week's release. All 24 builtin tool descriptions, sub-agent prompts, and utility prompts</li>
+      <li><a href="https://opentweet.io/blog/build-ai-twitter-content-system-claude-guide"><strong>Build a Twitter content system with Claude</strong></a>. End-to-end pipeline using the OpenTweet MCP server</li>
+      <li><strong>Claude for Open Source</strong>. Applications open through <strong>June 30, 2026</strong>, up to 10,000 recipients on a rolling basis</li>
+      <li><a href="https://composio.dev/toolkits/twitter/framework/claude-code"><strong>Composio's Twitter MCP toolkit</strong></a>. Drop-in MCP for Claude Code, no API wrangling</li>
+      <li><strong>r/ClaudeAI consensus</strong>. Plan Mode + CLAUDE.md + LSP plugin is the new "starter pack" recommended to every newcomer</li>
+      <li><strong>Claude Code source leak</strong> follow-up. Frank Pereny's <a href="https://www.franksworld.com/2026/04/02/the-claude-code-leak-a-new-chapter-in-open-source-ai/">analysis</a> still circulating. Community has built mirror tools to introspect the leaked 512K-line bundle</li>
     </ul>
   </div>
 </div>
@@ -721,13 +721,13 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
   </div>
 
   <div class="item">
-    <a class="title" href="https://www.bloomberg.com/news/articles/2026-04-06/broadcom-confirms-deal-to-ship-google-tpu-chips-to-anthropic">Anthropic crosses $30B ARR — passes OpenAI for the first time</a>
+    <a class="title" href="https://www.bloomberg.com/news/articles/2026-04-06/broadcom-confirms-deal-to-ship-google-tpu-chips-to-anthropic">Anthropic crosses $30B ARR. Passes OpenAI for the first time</a>
     <div class="desc">$1B → $30B in 15 months, 3.3× growth in the last four. <strong>1,000+ enterprise customers</strong> paying $1M+/year, ~80% enterprise revenue mix. Claude Code alone hit $1B ARR six months after GA. Anthropic also closed a 3.5 GW compute deal with Google + Broadcom and the SpaceX Colossus 1 deal noted above.</div>
     <div class="source">Bloomberg · The Information</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/">Gemma 4 — Google's most capable open model</a>
+    <a class="title" href="https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/">Gemma 4. Google's most capable open model</a>
     <div class="desc">Apache 2.0, four sizes (E2B, E4B, 26B A4B, 31B), <strong>256K context</strong>, 140+ languages, native multimodality (audio on small variants). Built-in step-by-step reasoning mode and structured tool use for agentic workflows. Released early April but the May Cloud rollout is when it became broadly usable.</div>
     <div class="source">Google · DeepMind</div>
   </div>
@@ -741,13 +741,13 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
   <div class="callout">
     <div class="callout-label">More signal</div>
     <ul>
-      <li><a href="https://www.infoq.com/news/2026/05/cloudflare-llm-infrastructure/"><strong>Cloudflare's split-inference infrastructure</strong></a> — separates input processing from output generation, custom inference engine for tighter GPU utilization</li>
-      <li><strong>TurboQuant at ICLR 2026</strong> — Google's KV-cache compression algorithm using PolarQuant rotation + Quantized Johnson-Lindenstrauss; meaningful memory savings on long context</li>
-      <li><strong>Claude Mythos</strong> — restricted frontier model with autonomous offensive cyber capabilities; internal testing showed it identifying and exploiting thousands of zero-days in hardened envs</li>
-      <li><strong>ClawBench</strong> — 153-task agent eval across 144 live production sites; best frontier score is <strong>Claude Sonnet 4.6 at 33.3%</strong>, illustrating how far real-world agent reliability still has to go</li>
-      <li><a href="https://press.airstreet.com/p/state-of-ai-may-2026"><strong>Air Street's State of AI: May 2026</strong></a> — monthly snapshot, strong on capital flows and regulation</li>
-      <li><strong>OpenAI realtime voice trio</strong> — GPT-Realtime-2, GPT-Realtime-Translate, GPT-Realtime-Whisper shipped same week as 5.5 Instant</li>
-      <li><strong>GPT-5.5-Cyber</strong> — security-focused variant announced; positions OpenAI directly opposite Anthropic's Cyber Verification Program</li>
+      <li><a href="https://www.infoq.com/news/2026/05/cloudflare-llm-infrastructure/"><strong>Cloudflare's split-inference infrastructure</strong></a>. Separates input processing from output generation, custom inference engine for tighter GPU utilization</li>
+      <li><strong>TurboQuant at ICLR 2026</strong>. Google's KV-cache compression algorithm using PolarQuant rotation + Quantized Johnson-Lindenstrauss. Meaningful memory savings on long context</li>
+      <li><strong>Claude Mythos</strong>. Restricted frontier model with autonomous offensive cyber capabilities. Internal testing showed it identifying and exploiting thousands of zero-days in hardened envs</li>
+      <li><strong>ClawBench</strong>. 153-task agent eval across 144 live production sites. Best frontier score is <strong>Claude Sonnet 4.6 at 33.3%</strong>, illustrating how far real-world agent reliability still has to go</li>
+      <li><a href="https://press.airstreet.com/p/state-of-ai-may-2026"><strong>Air Street's State of AI: May 2026</strong></a>. Monthly snapshot, strong on capital flows and regulation</li>
+      <li><strong>OpenAI realtime voice trio</strong>. GPT-Realtime-2, GPT-Realtime-Translate, GPT-Realtime-Whisper shipped same week as 5.5 Instant</li>
+      <li><strong>GPT-5.5-Cyber</strong>. Security-focused variant announced. Positions OpenAI directly opposite Anthropic's Cyber Verification Program</li>
     </ul>
   </div>
 </div>
@@ -755,7 +755,7 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
 <nav class="issue-nav">
   <a class="nav-prev" href="003.html">
     <span class="nav-meta"><span class="nav-arrow">&larr;</span> Previous</span>
-    <span class="nav-label">Issue #003 &middot; May 1</span>
+    <span class="nav-label">Issue #003 &middot. May 1</span>
   </a>
   <a class="nav-archive" href="../">All issues</a>
   <span class="nav-empty"></span>
