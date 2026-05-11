@@ -76,7 +76,6 @@ Total human input per week: **zero**.
 - **Responsive font sizing** uses `clamp(min, fluid, max)` across body, headings, and component-level text. No media-query font overrides.
 - **Theme toggle** applies persisted preference *before* paint via an inline `<script>` in `<head>`, so dark-mode users never see a flash of light theme.
 - **Issue navigation** at the bottom of every issue: ←Previous · Archive · Next→. First/last issues collapse one side to a `nav-empty` slot. Mobile reflows to two columns with archive promoted to the top row.
-- **Backward-compat 404** — old `/claude-ai-weekly-N.html` URLs (the original naming pattern from issues 1-3) auto-redirect to the new `/weekly/NNN.html` paths via a single `404.html` handler. No per-file stub clutter in the repo tree.
 - **Every callout bullet links to a primary source.** No dead text. Verified across all four issues — 68 bullets, 68 working links.
 
 ## Repo structure
