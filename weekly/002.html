@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude & AI Weekly — Issue #2, April 24, 2026</title>
+<base target="_blank">
+<script>
+  // Apply persisted theme before paint to avoid flash
+  (function(){
+    try {
+      var t = localStorage.getItem('caw-theme');
+      if (t === 'light' || t === 'dark') {
+        document.documentElement.setAttribute('data-theme', t);
+      }
+    } catch(e){}
+  })();
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F7F4EE;
+  --surface: #FFFDF8;
+  --text: #1B1A17;
+  --text-mid: #46443F;
+  --text-muted: #8A867D;
+  --border: #E7E2D6;
+  --border-soft: #EFEAE0;
+  --accent: #6B5CE7;
+  --accent-2: #C2410C;
+  --accent-soft: #EFECFF;
+  --link: #4338CA;
+  --link-hover: #312E81;
+
+  --tag-tips-bg: #FCE7C1; --tag-tips-text: #7C3A06; --tag-tips-dot: #BA7517;
+  --tag-spot-bg: #D7E6FC; --tag-spot-text: #1E3A8A; --tag-spot-dot: #378ADD;
+  --tag-rel-bg: #E6E2FB;  --tag-rel-text: #4338CA; --tag-rel-dot: #534AB7;
+  --tag-comm-bg: #CCF1DE; --tag-comm-text: #065F46; --tag-comm-dot: #1D9E75;
+  --tag-ai-bg: #FFDDD0;   --tag-ai-text: #9A2A0F;  --tag-ai-dot: #D85A30;
+
+  --callout-bg: #FBF8F1;
+  --callout-border: #E7E2D6;
+  --code-bg: #EFEAE0;
+
+  --serif: 'Newsreader', Charter, 'Iowan Old Style', 'Georgia', serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
+}
+/* Dark theme — applies when system is dark AND no explicit override,
+   OR when data-theme="dark" is explicitly set. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15140F;
+    --surface: #1E1C17;
+    --text: #ECE7DA;
+    --text-mid: #B8B2A2;
+    --text-muted: #7A766B;
+    --border: #2F2C25;
+    --border-soft: #25221C;
+    --accent: #A99CFF;
+    --accent-2: #F5A05B;
+    --accent-soft: #1F1B3A;
+    --link: #B0A8FF;
+    --link-hover: #D7D2FF;
+
+    --tag-tips-bg: #3D2407; --tag-tips-text: #FCD9A1; --tag-tips-dot: #E89A4A;
+    --tag-spot-bg: #142A4E; --tag-spot-text: #B6CFF7; --tag-spot-dot: #6DA8E8;
+    --tag-rel-bg: #221A55;  --tag-rel-text: #C9C1FA;  --tag-rel-dot: #8C82E5;
+    --tag-comm-bg: #073A2A; --tag-comm-text: #9EE9C5; --tag-comm-dot: #45BC92;
+    --tag-ai-bg: #46160A;   --tag-ai-text: #F8B9A3;   --tag-ai-dot: #ED7E54;
+
+    --callout-bg: #1B1915;
+    --callout-border: #2F2C25;
+    --code-bg: #2A2620;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15140F;
+  --surface: #1E1C17;
+  --text: #ECE7DA;
+  --text-mid: #B8B2A2;
+  --text-muted: #7A766B;
+  --border: #2F2C25;
+  --border-soft: #25221C;
+  --accent: #A99CFF;
+  --accent-2: #F5A05B;
+  --accent-soft: #1F1B3A;
+  --link: #B0A8FF;
+  --link-hover: #D7D2FF;
+
+  --tag-tips-bg: #3D2407; --tag-tips-text: #FCD9A1; --tag-tips-dot: #E89A4A;
+  --tag-spot-bg: #142A4E; --tag-spot-text: #B6CFF7; --tag-spot-dot: #6DA8E8;
+  --tag-rel-bg: #221A55;  --tag-rel-text: #C9C1FA;  --tag-rel-dot: #8C82E5;
+  --tag-comm-bg: #073A2A; --tag-comm-text: #9EE9C5; --tag-comm-dot: #45BC92;
+  --tag-ai-bg: #46160A;   --tag-ai-text: #F8B9A3;   --tag-ai-dot: #ED7E54;
+
+  --callout-bg: #1B1915;
+  --callout-border: #2F2C25;
+  --code-bg: #2A2620;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--sans);
+  font-size: clamp(15px, 0.35vw + 14px, 16.5px);
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  padding: clamp(1.5rem, 3vw, 3rem) clamp(1rem, 4vw, 2.5rem) clamp(2rem, 4vw, 3.5rem);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.wrap {
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+a { color: var(--link); text-decoration: none; transition: color .15s ease; }
+a:hover { color: var(--link-hover); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
+
+strong { font-weight: 600; color: var(--text); }
+code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); padding: 2px 6px; border-radius: 4px; color: var(--text); }
+
+/* ── Header ── */
+.masthead {
+  text-align: center;
+  padding: 1rem 0 2.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2.75rem;
+  position: relative;
+}
+.masthead::after {
+  content: "";
+  display: block;
+  width: 56px; height: 3px;
+  background: linear-gradient(90deg, var(--tag-tips-dot), var(--tag-spot-dot), var(--tag-rel-dot), var(--tag-comm-dot), var(--tag-ai-dot));
+  border-radius: 2px;
+  margin: 24px auto 0;
+}
+.masthead .issue {
+  font-family: var(--mono); font-size: 12px;
+  color: var(--text-muted); letter-spacing: 1.5px;
+  text-transform: uppercase; margin-bottom: 18px;
+}
+.masthead h1 {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw + 10px, 42px);
+  font-weight: 600;
+  letter-spacing: -1px;
+  line-height: 1.05;
+  color: var(--text);
+}
+.masthead h1 span {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent);
+}
+.masthead .tagline {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(15px, 0.5vw + 13px, 17px);
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-top: 12px;
+}
+
+/* ── Sections ── */
+.section { margin-bottom: 3rem; --section-accent: var(--accent); }
+.section:has(.tag-tips)      { --section-accent: var(--tag-tips-dot); }
+.section:has(.tag-spotlight) { --section-accent: var(--tag-spot-dot); }
+.section:has(.tag-releases)  { --section-accent: var(--tag-rel-dot); }
+.section:has(.tag-community) { --section-accent: var(--tag-comm-dot); }
+.section:has(.tag-landscape) { --section-accent: var(--tag-ai-dot); }
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 7px 14px 7px 12px;
+  border-radius: 999px;
+  margin-bottom: 22px;
+}
+.section-tag::before {
+  content: "";
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.65;
+}
+.tag-tips      { background: var(--tag-tips-bg); color: var(--tag-tips-text); }
+.tag-spotlight { background: var(--tag-spot-bg); color: var(--tag-spot-text); }
+.tag-releases  { background: var(--tag-rel-bg);  color: var(--tag-rel-text); }
+.tag-community { background: var(--tag-comm-bg); color: var(--tag-comm-text); }
+.tag-landscape { background: var(--tag-ai-bg);   color: var(--tag-ai-text); }
+
+/* ── Items ── */
+.item {
+  margin: 0 -14px;
+  padding: 18px 14px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: background-color .18s ease, border-color .18s ease;
+  position: relative;
+}
+.item::after {
+  content: "";
+  position: absolute;
+  left: 14px; right: 14px; bottom: 0;
+  height: 1px;
+  background: var(--border-soft);
+}
+.item:last-of-type::after { display: none; }
+.item:hover {
+  background: var(--callout-bg);
+  border-color: var(--section-accent);
+}
+.item:hover::after { display: none; }
+.item a.title {
+  display: inline-block;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(17px, 0.6vw + 15px, 19.5px);
+  line-height: 1.25;
+  letter-spacing: -0.3px;
+  color: var(--text);
+  margin-bottom: 8px;
+  transition: color .15s ease;
+}
+.item a.title:hover { color: var(--section-accent); text-decoration: none; }
+.item:hover a.title { color: var(--section-accent); }
+.item .desc {
+  font-size: clamp(14.5px, 0.3vw + 13.5px, 15.5px);
+  color: var(--text-mid);
+  margin-top: 2px;
+  line-height: 1.6;
+}
+.item .source {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 10px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+/* ── Callout box ── */
+.callout {
+  background: var(--callout-bg);
+  border: 1px solid var(--callout-border);
+  border-radius: 10px;
+  padding: 20px 22px 18px;
+  margin: 22px 0 4px;
+  transition: border-color .18s ease, background-color .18s ease;
+}
+.callout:hover { border-color: var(--section-accent); }
+.callout .callout-label {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.callout .callout-label::before {
+  content: ""; width: 16px; height: 1px;
+  background: var(--text-muted); opacity: 0.55;
+}
+.callout ul {
+  list-style: none;
+  padding-left: 0;
+  font-size: clamp(14px, 0.3vw + 13px, 15px);
+  color: var(--text-mid);
+  line-height: 1.6;
+}
+.callout li {
+  margin-bottom: 10px;
+  padding-left: 18px;
+  position: relative;
+}
+.callout li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 14px;
+  top: 1px;
+}
+.callout li:last-child { margin-bottom: 0; }
+
+/* ── Spotlight card ── */
+.spotlight {
+  background: linear-gradient(135deg, var(--accent-soft) 0%, var(--callout-bg) 100%);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  padding: 22px 24px;
+  margin-bottom: 24px;
+  transition: border-color .18s ease;
+}
+.spotlight:hover { border-color: var(--section-accent); border-left-color: var(--section-accent); }
+.spotlight .spot-label {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 8px;
+}
+.spotlight .spot-title {
+  font-family: var(--serif);
+  font-size: clamp(20px, 0.8vw + 17px, 24px);
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  color: var(--text);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+.spotlight .spot-desc {
+  font-size: clamp(14.5px, 0.3vw + 13.5px, 15.5px);
+  color: var(--text-mid);
+  line-height: 1.65;
+}
+
+/* ── Tip cards ── */
+.tip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  transition: border-color .15s ease, transform .15s ease;
+}
+.tip:hover { border-color: var(--section-accent); background: var(--callout-bg); }
+.tip .tip-label {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--tag-tips-dot);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.tip .tip-text {
+  font-size: clamp(14.5px, 0.3vw + 13.5px, 15.5px);
+  color: var(--text-mid);
+  line-height: 1.65;
+}
+.tip .tip-text strong { color: var(--text); font-weight: 600; }
+
+/* ── Divider ── */
+.sep {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 0 0 3rem;
+  position: relative;
+}
+.sep::after {
+  content: "❋";
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--bg);
+  padding: 0 14px;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-family: var(--serif);
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: 2.5rem 0 1rem;
+  border-top: 1px solid var(--border);
+  margin-top: 1.5rem;
+}
+.footer p {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+}
+.footer p:first-child { font-weight: 500; color: var(--text-mid); }
+
+/* ── Issue navigation ── */
+.issue-nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 12px;
+  align-items: stretch;
+  margin: 3rem 0 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border);
+}
+.issue-nav > a, .issue-nav > span {
+  font-family: var(--sans);
+  text-decoration: none;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--callout-bg);
+  transition: background-color .18s ease, border-color .18s ease, color .18s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-height: 56px;
+  justify-content: center;
+}
+.issue-nav a:hover {
+  background: var(--surface);
+  border-color: var(--accent);
+}
+.issue-nav .nav-prev { align-items: flex-start; text-align: left; }
+.issue-nav .nav-next { align-items: flex-end; text-align: right; }
+.issue-nav .nav-archive {
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--text);
+  padding: 14px 22px;
+  flex-direction: row;
+  gap: 6px;
+}
+.issue-nav .nav-meta {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.issue-nav .nav-label {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.3;
+}
+.issue-nav a:hover .nav-label { color: var(--accent); }
+.issue-nav a:hover .nav-meta { color: var(--accent); }
+.issue-nav .nav-arrow {
+  font-family: var(--serif);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  display: inline-block;
+  transition: transform .18s ease, color .18s ease;
+}
+.issue-nav a:hover .nav-arrow { color: var(--accent); }
+.issue-nav .nav-prev:hover .nav-arrow { transform: translateX(-3px); }
+.issue-nav .nav-next:hover .nav-arrow { transform: translateX(3px); }
+.issue-nav .nav-empty {
+  background: transparent;
+  border-color: transparent;
+  pointer-events: none;
+}
+@media (max-width: 640px) {
+  .issue-nav { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .issue-nav .nav-archive { grid-column: 1 / -1; order: -1; padding: 10px 16px; min-height: auto; }
+  .issue-nav .nav-empty { display: none; }
+}
+
+/* ── Theme switch ── */
+.theme-switch {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
+  display: inline-flex;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  font-family: var(--sans);
+}
+.theme-switch button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color .15s ease, color .15s ease;
+}
+.theme-switch button:hover { color: var(--text); }
+.theme-switch button[aria-pressed="true"] {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.theme-switch svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .masthead { padding-bottom: 2rem; margin-bottom: 2rem; padding-top: 3rem; }
+  .spotlight, .callout, .tip { padding: 16px 18px; }
+  .item { margin-bottom: 18px; padding-bottom: 18px; }
+  .section { margin-bottom: 2.25rem; }
+  .theme-switch { top: 0.6rem; right: 0.6rem; padding: 2px; }
+  .theme-switch button { padding: 5px 9px; font-size: 11px; }
+  .theme-switch button span { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="theme-switch" role="group" aria-label="Theme">
+  <button type="button" data-theme-set="light" aria-label="Light theme">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+    <span>Light</span>
+  </button>
+  <button type="button" data-theme-set="dark" aria-label="Dark theme">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <span>Dark</span>
+  </button>
+</div>
+
+<div class="wrap">
+
+<div class="masthead">
+  <div class="issue">#2 · April 24, 2026</div>
+  <h1>Claude <span>&</span> AI Weekly</h1>
+  <div class="tagline">Features, tips, community, and the broader AI landscape — in 5 minutes</div>
+</div>
+
+<!-- ════════════════════ TIPS & TRICKS ════════════════════ -->
+<div class="section">
+  <div class="section-tag tag-tips">Tips & Tricks</div>
+
+  <div class="tip">
+    <div class="tip-label">Workflow</div>
+    <div class="tip-text"><strong>Give Claude a feedback loop, not just instructions.</strong> Include test commands, linter checks, or expected outputs in your prompt — Claude runs the tests, sees failures, and self-corrects without you stepping in. Devs report <strong>2–3x quality improvement</strong> over single-shot prompting. <a href="https://www.builder.io/blog/claude-code-tips-best-practices">50 Claude Code tips →</a></div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">Configuration</div>
+    <div class="tip-text"><strong>Run <code>/config</code> to pick a response style.</strong> Three built-in modes: <strong>Explanatory</strong> (detailed, step-by-step), <strong>Concise</strong> (brief, action-focused), <strong>Technical</strong> (precise, jargon-friendly). Most power users don't know this exists. Pair it with effort levels (<code>xhigh</code> for hard tasks, <code>low</code> for quick ones).</div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">Prompting technique</div>
+    <div class="tip-text"><strong>Import your memory from ChatGPT, Gemini, or Grok.</strong> Settings → Memory → Import lets you bring over your conversation history and preferences from other AI assistants. Claude uses this to personalize responses from day one instead of learning from scratch.</div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">Claude Code · context management</div>
+    <div class="tip-text"><strong>Structure > cleverness in 2026.</strong> Context architecture — what files, memory, examples, and role framing Claude receives — is what separates consistent outputs from inconsistent ones. Build a 3-file context system: <strong>identity file</strong>, <strong>voice profile</strong>, and <strong>anti-AI-writing file</strong>. <a href="https://www.the-ai-corner.com/p/claude-best-practices-power-user-guide-2026">Full guide →</a></div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">More to explore</div>
+    <ul>
+      <li><a href="https://www.buildfastwithai.com/blogs/claude-ai-prompt-codes-2026"><strong>Claude AI prompt codes that actually work</strong></a> — tested templates for structured outputs</li>
+      <li><a href="https://smartscope.blog/en/generative-ai/claude/claude-code-best-practices-advanced-2026/"><strong>11 advanced techniques</strong></a> for hooks, subagents, and context management</li>
+      <li><a href="https://www.aipromptlibrary.app/blog/claude-ai-prompts-guide"><strong>100 Claude prompts</strong></a> with free templates — organized by use case</li>
+      <li><a href="https://claudify.tech/blog/claude-code-best-practices"><strong>10 Claude Code best practices</strong></a> — concise, actionable checklist</li>
+      <li><a href="https://www.trustinsights.ai/blog/2026/04/so-what-setting-up-claude-code-for-success/"><strong>Setting up Claude Code for success</strong></a> — Trust Insights walkthrough</li>
+    </ul>
+  </div>
+</div>
+<hr class="sep">
+
+<!-- ════════════════════ FEATURE SPOTLIGHT ════════════════════ -->
+<div class="section">
+  <div class="section-tag tag-spotlight">Feature Spotlight</div>
+
+  <div class="spotlight">
+    <div class="spot-label">This week</div>
+    <div class="spot-title">Claude Managed Agents</div>
+    <div class="spot-desc">A fully hosted platform for building and deploying long-running AI agents at scale. Instead of wiring up your own agent loop, tool execution, and sandboxing, Managed Agents handles orchestration, state management, error recovery, and session continuity. Think "serverless for agents" — at <strong>$0.08/session-hour</strong> plus standard token costs. Now in public beta.</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://www.anthropic.com/engineering/managed-agents">Scaling Managed Agents: Decoupling the brain from the hands</a>
+    <div class="desc">Anthropic's engineering deep-dive on the meta-harness architecture — how they separate agent logic from runtime concerns like sandboxing and credentials.</div>
+    <div class="source">Anthropic Engineering</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://platform.claude.com/docs/en/managed-agents/overview">Claude Managed Agents overview — official docs</a>
+    <div class="desc">API reference, session management, tool configuration, and getting started guide. The fastest path from prototype to production.</div>
+    <div class="source">Claude Platform Docs</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://siliconangle.com/2026/04/08/anthropic-launches-claude-managed-agents-speed-ai-agent-development/">Anthropic launches Claude Managed Agents to speed up AI agent development</a>
+    <div class="desc">Early adopters include Notion, Rakuten, and Asana. Key value prop: go from prototype to launch in days rather than months.</div>
+    <div class="source">SiliconANGLE</div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Also worth learning</div>
+    <ul>
+      <li><strong>Claude Design</strong> — prompt-to-prototype tool for visuals, slides, one-pagers. Exports to PDF, PPTX, HTML, and Canva. <a href="https://techsy.io/en/blog/claude-design-tutorial">Tutorial with 7 tested prompts →</a></li>
+      <li><strong><code>/powerup</code></strong> — first-party interactive tutorial system <em>inside</em> Claude Code's terminal. Animated demos, no external docs needed</li>
+      <li><strong>Monitor tool</strong> — streams background events into conversation so Claude can tail logs and react live</li>
+      <li><strong>Ultraplan</strong> (early preview) — draft plans in CLI, review in web editor, run remotely or pull back local</li>
+    </ul>
+  </div>
+</div>
+<hr class="sep">
+
+<!-- ════════════════════ CLAUDE RELEASES ════════════════════ -->
+<div class="section">
+  <div class="section-tag tag-releases">Claude Releases</div>
+
+  <div class="item">
+    <a class="title" href="https://www.anthropic.com/engineering/april-23-postmortem">Anthropic publishes post-mortem on Claude Code quality degradation</a>
+    <div class="desc">Three separate product-layer changes caused the reported quality drops: a reasoning effort downgrade (Mar 4), a caching bug that wiped thinking history (Mar 26), and an overly aggressive verbosity limit (Apr 16). All three now fixed. <strong>Usage limits reset for all subscribers.</strong></div>
+    <div class="source">Anthropic Engineering</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://releasebot.io/updates/anthropic/claude-code">Claude Code ships native binary launcher + sandbox overhaul</a>
+    <div class="desc">Broad CLI update with stronger permission safeguards, smoother Remote Control and <code>/loop</code> workflows, better terminal editing, and stability fixes across macOS, Linux, and Windows.</div>
+    <div class="source">Releasebot</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://claude.com/blog/claude-managed-agents">Claude Managed Agents enters public beta</a>
+    <div class="desc">Hosted agent runtime with composable APIs — sandboxing, state management, tool execution, and error recovery included. $0.08/session-hour + token costs.</div>
+    <div class="source">Anthropic</div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">In brief</div>
+    <ul>
+      <li><strong>Default effort reverted to <code>xhigh</code></strong> for Opus 4.7, <code>high</code> for all other models — after community backlash over medium default</li>
+      <li><strong><code>/resume</code> up to 67% faster</strong> on 40MB+ sessions — handles dead-fork entries more efficiently</li>
+      <li><strong>MCP startup faster</strong> when multiple stdio servers are configured</li>
+      <li><strong>Thinking spinner rework</strong> — now shows inline progress ("still thinking", "almost done") instead of separate hint row</li>
+      <li><strong>Claude Design</strong> launched April 17 — powered by Opus 4.7, exports to PDF/PPTX/HTML/Canva</li>
+      <li><strong><code>ant</code> CLI</strong> — new Anthropic CLI for faster API interaction with YAML resource versioning</li>
+    </ul>
+  </div>
+</div>
+<hr class="sep">
+
+<!-- ════════════════════ COMMUNITY ════════════════════ -->
+<div class="section">
+  <div class="section-tag tag-community">Community & Open Source</div>
+
+  <div class="item">
+    <a class="title" href="https://venturebeat.com/technology/mystery-solved-anthropic-reveals-changes-to-claudes-harnesses-and-operating-instructions-likely-caused-degradation">"Mystery solved" — community reaction to Claude Code post-mortem</a>
+    <div class="desc">VentureBeat covers the community response to Anthropic's transparency. Developers had been calling it "AI shrinkflation" for weeks — the post-mortem validated their complaints with specific root causes.</div>
+    <div class="source">VentureBeat</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://dev.to/thegdsks/claude-code-felt-off-for-a-month-here-is-what-broke-751">Claude Code felt off for a month — here's what broke</a>
+    <div class="desc">Developer breakdown of all three issues with before/after comparisons. One of the most-discussed posts on DEV Community this week.</div>
+    <div class="source">DEV Community</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://pasqualepillitteri.it/en/news/805/claude-code-effort-adaptive-thinking-guida">Two Claude Code settings 90% of users don't know about</a>
+    <div class="desc">Guide to effort levels and adaptive thinking — the hidden controls that let you tune Claude Code's reasoning depth per-task instead of accepting defaults.</div>
+    <div class="source">Pasquale Pillitteri</div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">In brief</div>
+    <ul>
+      <li><a href="https://github.com/shanraisshan/claude-code-best-practice"><strong>claude-code-best-practice</strong></a> repo hits <strong>20k+ stars</strong> — 84 compiled best practices, community-maintained</li>
+      <li><a href="https://github.com/FlorianBruniaux/claude-code-ultimate-guide"><strong>Claude Code Ultimate Guide</strong></a> — production-ready templates, agentic workflow guides, cheatsheet</li>
+      <li><strong>BUDDY virtual pet</strong> discovered in the source leak — 18 species including duck, dragon, axolotl, capybara, and ghost</li>
+      <li><a href="https://composio.dev/toolkits/twitter/framework/claude-code"><strong>Twitter MCP integration</strong></a> via Composio — connect Claude Code to Twitter/X for automated posting workflows</li>
+      <li><strong>r/ClaudeAI</strong> consensus: role priming + explicit JSON schemas + chain-of-thought via hidden scratchpads = most reliable output pattern</li>
+    </ul>
+  </div>
+</div>
+<hr class="sep">
+
+<!-- ════════════════════ AI LANDSCAPE ════════════════════ -->
+<div class="section">
+  <div class="section-tag tag-landscape">AI / LLM Landscape</div>
+
+  <div class="item">
+    <a class="title" href="https://techcrunch.com/2026/04/23/openai-chatgpt-gpt-5-5-ai-model-superapp/">OpenAI releases GPT-5.5 "Spud" — six weeks after GPT-5.4</a>
+    <div class="desc">Stronger agentic coding, multi-step workflows with less user input, and better token efficiency. Rolling out to Plus, Pro, Business, Enterprise in ChatGPT and Codex. API access pending cybersecurity guardrails.</div>
+    <div class="source">TechCrunch</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://www.sciencedaily.com/releases/2026/04/260405003952.htm">Neural + symbolic reasoning cuts AI energy use by 100x while boosting accuracy</a>
+    <div class="desc">New research combines neural networks with human-like symbolic reasoning. Could reshape how inference is done at scale — less compute, better results.</div>
+    <div class="source">ScienceDaily</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://www.technologyreview.com/2026/04/21/1135645/llm-large-language-models-ai/">MIT Tech Review: "10 things that matter in AI right now"</a>
+    <div class="desc">The density of April releases created real pricing pressure — cost of "good enough" LLM inference dropped roughly 50% this month alone. Comprehensive analysis of where the field stands.</div>
+    <div class="source">MIT Technology Review</div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">More signal</div>
+    <ul>
+      <li><a href="https://openai.com/index/introducing-gpt-5-5/"><strong>GPT-5.5 official announcement</strong></a> — "a new class of intelligence for real work", codenamed Spud</li>
+      <li><a href="https://fazm.ai/blog/llm-news-april-2026"><strong>Gemini 3.1 Pro GA</strong></a> on Vertex AI — 2M token context in production with document-level caching</li>
+      <li><a href="https://llm-stats.com/llm-updates"><strong>DeepSeek R2</strong></a> — 92.7% on AIME 2025, rivals o3 reasoning at 70% lower cost</li>
+      <li><strong>Mistral Large 3</strong> — structured output + function calling improvements, EU data residency</li>
+      <li><a href="https://llm-stats.com/ai-news"><strong>Meta Llama 4 Scout</strong></a> — 17B vision-language model, runs on single consumer GPU</li>
+      <li><strong>HuggingFace Open LLM Leaderboard</strong> revamped with contamination-resistant benchmarks — Llama 4 Maverick, Mistral Large 3, Command R+ top the board</li>
+      <li><strong>OpenAI raised $122B</strong> to accelerate the next phase of AI</li>
+      <li><strong>GPT-Rosalind</strong> — OpenAI's new life sciences research model (Apr 16)</li>
+      <li><strong>OpenAI workspace agents</strong> — cloud-based agents across ChatGPT + Slack for Business/Enterprise</li>
+    </ul>
+  </div>
+</div>
+
+<nav class="issue-nav">
+  <a class="nav-prev" href="001.html">
+    <span class="nav-meta"><span class="nav-arrow">&larr;</span> Previous</span>
+    <span class="nav-label">Issue #001 &middot; Apr 23</span>
+  </a>
+  <a class="nav-archive" href="../">All issues</a>
+  <a class="nav-next" href="003.html">
+    <span class="nav-meta">Next <span class="nav-arrow">&rarr;</span></span>
+    <span class="nav-label">Issue #003 &middot; May 1</span>
+  </a>
+</nav>
+
+<div class="footer">
+  <p>Claude & AI Weekly #2 · Curated by Claude</p>
+  <p>Next issue · Friday, May 1</p>
+</div>
+
+</div>
+
+<script>
+  (function(){
+    var root = document.documentElement;
+    var btns = document.querySelectorAll('.theme-switch button[data-theme-set]');
+    var mql = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function current() {
+      var explicit = root.getAttribute('data-theme');
+      if (explicit === 'light' || explicit === 'dark') return explicit;
+      return mql.matches ? 'dark' : 'light';
+    }
+    function sync() {
+      var c = current();
+      btns.forEach(function(b){
+        b.setAttribute('aria-pressed', b.dataset.themeSet === c ? 'true' : 'false');
+      });
+    }
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){
+        var t = b.dataset.themeSet;
+        root.setAttribute('data-theme', t);
+        try { localStorage.setItem('caw-theme', t); } catch(e){}
+        sync();
+      });
+    });
+    // React to system changes when no explicit user choice is stored
+    mql.addEventListener && mql.addEventListener('change', function(){
+      if (!root.getAttribute('data-theme')) sync();
+    });
+    sync();
+  })();
+</script>
+
+</body>
+</html>
