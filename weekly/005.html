@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Claude & AI Weekly · Issue #4, May 8, 2026</title>
-<meta name="description" content="Plan Mode spotlight, Managed Agents adds Dreaming + Outcomes, Anthropic crosses $30B ARR, and GPT-5.5 Instant ships.">
+<title>Claude &amp; AI Weekly · Issue #5, May 15, 2026</title>
+<meta name="description" content="Claude Platform on AWS, Office GA, Legal goes open source, MCP spotlight, and Gemini Intelligence at Google I/O.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Claude & AI Weekly">
-<meta property="og:title" content="Claude &amp; AI Weekly · Issue #004: Plan Mode, Dreaming, and the SpaceX compute deal">
-<meta property="og:description" content="Plan Mode spotlight, Managed Agents adds Dreaming + Outcomes, Anthropic crosses $30B ARR, and GPT-5.5 Instant ships.">
-<meta property="og:url" content="https://anshdivu.github.io/ai-newsletter/weekly/004.html">
-<meta property="og:image" content="https://anshdivu.github.io/ai-newsletter/og/004.png">
+<meta property="og:title" content="Claude &amp; AI Weekly · Issue #005: AWS, Office, and Legal saturate the work stack">
+<meta property="og:description" content="Claude Platform on AWS, Office GA, Legal goes open source, MCP spotlight, and Gemini Intelligence at Google I/O.">
+<meta property="og:url" content="https://anshdivu.github.io/ai-newsletter/weekly/005.html">
+<meta property="og:image" content="https://anshdivu.github.io/ai-newsletter/og/005.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Claude &amp; AI Weekly — Issue #004, May 8, 2026">
-<meta property="article:published_time" content="2026-may-8">
+<meta property="og:image:alt" content="Claude &amp; AI Weekly — Issue #005, May 15, 2026">
+<meta property="article:published_time" content="2026-05-15">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Claude &amp; AI Weekly · Issue #004: Plan Mode, Dreaming, and the SpaceX compute deal">
-<meta name="twitter:description" content="Plan Mode spotlight, Managed Agents adds Dreaming + Outcomes, Anthropic crosses $30B ARR, and GPT-5.5 Instant ships.">
-<meta name="twitter:image" content="https://anshdivu.github.io/ai-newsletter/og/004.png">
-<link rel="canonical" href="https://anshdivu.github.io/ai-newsletter/weekly/004.html">
+<meta name="twitter:title" content="Claude &amp; AI Weekly · Issue #005: AWS, Office, and Legal saturate the work stack">
+<meta name="twitter:description" content="Claude Platform on AWS, Office GA, Legal goes open source, MCP spotlight, and Gemini Intelligence at Google I/O.">
+<meta name="twitter:image" content="https://anshdivu.github.io/ai-newsletter/og/005.png">
+<link rel="canonical" href="https://anshdivu.github.io/ai-newsletter/weekly/005.html">
 <base target="_blank">
 <script>
   // Apply persisted theme before paint to avoid flash
@@ -564,7 +564,7 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
 <div class="wrap">
 
 <div class="masthead">
-  <div class="issue">#4 · May 8, 2026</div>
+  <div class="issue">#5 · May 15, 2026</div>
   <h1>Claude <span>&</span> AI Weekly</h1>
   <div class="tagline">Features, tips, community, and the broader AI landscape. In 5 minutes</div>
 </div>
@@ -574,33 +574,33 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
   <div class="section-tag tag-tips">Tips & Tricks</div>
 
   <div class="tip">
-    <div class="tip-label">Context engineering · The AI Corner</div>
-    <div class="tip-text"><strong>Context engineering has replaced prompt engineering as the real leverage point.</strong> What you load into your context window, in what order and structure, matters more than how you phrase the ask. Build a persistent context system (CLAUDE.md, indexed docs, pinned files via <code>@</code>) before you write the prompt. <a href="https://www.the-ai-corner.com/p/claude-best-practices-power-user-guide-2026">Power user guide →</a></div>
+    <div class="tip-label">CLAUDE.md hygiene · Builder.io</div>
+    <div class="tip-text"><strong>Keep CLAUDE.md under 200 lines.</strong> Past that, instruction adherence drops and you burn context on every turn. Cover only commands, conventions, and the three or four files Claude must always read. Push everything else into linked docs you reference on demand. <a href="https://www.builder.io/blog/claude-code-tips-best-practices">50 Claude Code tips →</a></div>
   </div>
 
   <div class="tip">
-    <div class="tip-label">Context hygiene · Builder.io</div>
-    <div class="tip-text"><strong>Treat the context window like RAM, not storage.</strong> Performance degrades as it fills. <code>/clear</code> between unrelated tasks, <strong>compact at ~70%</strong> usage, delegate research to subagents, and scope each task narrowly. The community consensus from the May 2026 surveys: this single discipline of keeping sessions short and focused separates 2× users from 10× users. <a href="https://www.builder.io/blog/claude-code-tips-best-practices">50 Claude Code tips →</a></div>
+    <div class="tip-label">Subagents · XDA Developers</div>
+    <div class="tip-text"><strong>Delegate research to subagents, not the main loop.</strong> Spin one off to grep, read, and summarize. It returns a digest. Your main session keeps its context clean. Treat subagents like async coworkers. Cheap to start, expensive to ignore. <a href="https://www.xda-developers.com/ignored-claude-codes-subagents-until-i-realized-what-i-was-missing/">Why subagents pay off →</a></div>
   </div>
 
   <div class="tip">
-    <div class="tip-label">Verification loops · Boris Cherny</div>
-    <div class="tip-text"><strong>Hand Claude its own grader.</strong> Include the test command, linter, or expected output directly in the prompt. Claude runs the check, sees the failure, and fixes itself without you stepping in. Boris Cherny says this single pattern delivers a <strong>2–3× quality improvement</strong>. Pairs perfectly with PostToolUse hooks for continuous auto-validation. <a href="https://code.claude.com/docs/en/best-practices">Official best practices →</a></div>
+    <div class="tip-label">Plan Mode default · Builder.io</div>
+    <div class="tip-text"><strong>Make Plan Mode the default for anything touching 3+ files.</strong> Shift+Tab twice. The plan is cheap. The wrong refactor is not. Community consensus after Code w/ Claude: the only reason to skip Plan Mode is a single-file edit or a read-only question. <a href="https://code.claude.com/docs/en/common-workflows">Official workflows →</a></div>
   </div>
 
   <div class="tip">
-    <div class="tip-label">Frontend prompting · 2026 update</div>
-    <div class="tip-text"><strong>Prompt Opus 4.7 less for frontend, not more.</strong> Old habit was writing 200 lines of design specs to dodge generic Tailwind output. With 4.7's vision and design improvements, minimal guidance now produces more distinctive, creative UIs. Over-prompting actively hurts. Describe the feel and let it pick the visual language. <a href="https://venturebeat.com/technology/anthropic-just-launched-claude-design-an-ai-tool-that-turns-prompts-into-prototypes-and-challenges-figma">Why Claude Design ships well →</a></div>
+    <div class="tip-label">Opus 4.7 tokenizer · platform.claude.com</div>
+    <div class="tip-text"><strong>Budget for up to 35% more tokens with Opus 4.7.</strong> The new tokenizer encodes text less densely than 4.6. Same prompt, same context window, fewer characters fit. Re-check your CLAUDE.md size and your long-doc pipelines before you ship anything 4.7-only. <a href="https://platform.claude.com/docs/en/about-claude/models/whats-new-claude-4-7">What's new in 4.7 →</a></div>
   </div>
 
   <div class="callout">
     <div class="callout-label">More to explore</div>
     <ul>
-      <li><a href="https://simonwillison.net/2026/May/6/code-w-claude-2026/"><strong>Simon Willison's Code w/ Claude live blog</strong></a>. The canonical recap of the May 6 keynote, every announcement in one scrollable page</li>
-      <li><a href="https://www.generative.inc/the-complete-claude-code-guide-2026-planning-context-engineering-and-high-leverage-development"><strong>Complete Claude Code Guide (2026)</strong></a>. Planning, context engineering, and high-leverage workflows in one long-read</li>
-      <li><a href="https://www.morphllm.com/claude-code-best-practices"><strong>Morph's 10× productivity guide</strong></a>. Opinionated, fresh-for-May, lots of copy-paste templates</li>
-      <li><a href="https://www.aipromptlibrary.app/blog/claude-ai-prompts-guide"><strong>100 Claude prompts I actually use</strong></a>. Free templates organized by task type</li>
-      <li><a href="https://nexasphere.io/blog/claude-ai-tips-tricks-2026"><strong>25 ways to get better Claude results (2026)</strong></a>. Covers XML tag structuring, role anchoring, and the "interview-me-first" pattern for ambiguous specs</li>
+      <li><a href="https://evartology.substack.com/p/claude-code-best-practices-for-better-coding-may-2026"><strong>Claude Code best practices for May 2026</strong></a>. Fresh-this-week roundup, focused on Plan Mode + short CLAUDE.md + verification loops</li>
+      <li><a href="https://www.morphllm.com/claude-code-best-practices"><strong>Morph's 10× productivity guide</strong></a>. Opinionated, lots of copy-paste templates, refreshed mid-May</li>
+      <li><a href="https://claudify.tech/blog/claude-code-best-practices"><strong>Claudify's 10 best practices (2026)</strong></a>. Tight, no-fluff list. Good first read for new hires</li>
+      <li><a href="https://www.the-ai-corner.com/p/claude-best-practices-power-user-guide-2026"><strong>Power user guide 2026</strong></a>. Identity file, voice profile, anti-AI-writing file. The three-file context starter pack</li>
+      <li><a href="https://muz.li/blog/claude-design-one-week-in-hacks-best-practices-tips-from-real-world-use/"><strong>Claude Design, one week in</strong></a>. Real-world hacks from designers who shipped with it daily after the May 6 launch</li>
     </ul>
   </div>
 </div>
@@ -612,36 +612,36 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
 
   <div class="spotlight">
     <div class="spot-label">This week</div>
-    <div class="spot-title">Claude Code Plan Mode</div>
-    <div class="spot-desc">A gate, not magic. Plan Mode forces Claude to draft a full written plan before touching any file. You review, edit, or reject before execution begins. Toggle with <strong>Shift+Tab twice</strong> from any prompt. The footer confirms it's on. The community read in May was near-unanimous. Skip Plan Mode and you collapse 20 ambiguous decisions onto Claude in real time, each landing around 70% confidence. Plan Mode pre-resolves those decisions to ~100% before code is written. Use it for any change touching <strong>3+ files</strong>, schema changes, or security-sensitive code.</div>
+    <div class="spot-title">MCP servers, Claude's universal adapter</div>
+    <div class="spot-desc"><strong>Model Context Protocol</strong> is the open standard that lets Claude read and write external systems. Think USB-C for tools. One protocol, one config, anything pluggable. The week's launches make it concrete. <strong>Office GA</strong>, <strong>Claude for Legal</strong>, and <strong>Small Business</strong> all ship as MCP connector bundles. The community marketplace cleared <strong>770+ MCP servers</strong> as of May 14. Use MCP when you need durable two-way access to a real system (Slack, Postgres, GitHub, your design tool). Use a Skill when the value is in prompt scaffolding and instructions. Most production agents now run with 3 to 6 MCPs and a handful of Skills.</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://www.anyonebuilds.com/guides/claude-code-plan-mode">Claude Code Plan Mode: The Complete 2026 Guide</a>
-    <div class="desc">The most thorough walkthrough. When to enable it, how the plan-review-execute loop works in practice, common failure modes, and how Plan Mode composes with subagents and Skills.</div>
-    <div class="source">Anyone Builds</div>
-  </div>
-
-  <div class="item">
-    <a class="title" href="https://www.claudedirectory.org/blog/claude-code-plan-mode-guide">When to use Plan Mode (and when to skip it)</a>
-    <div class="desc">Decision framework for Plan Mode vs. direct execution. Multi-file refactors and schema work always. Tiny edits and read-only Q&A almost never. Includes the productivity numbers from teams that adopted Plan-Mode-by-default in April.</div>
-    <div class="source">Claude Directory</div>
-  </div>
-
-  <div class="item">
-    <a class="title" href="https://code.claude.com/docs/en/common-workflows">Official common workflows. Plan Mode reference</a>
-    <div class="desc">Anthropic's own documentation covering Plan Mode triggers, how plans are persisted, and how to compose it with the new outcomes feature in Managed Agents.</div>
+    <a class="title" href="https://code.claude.com/docs/en/mcp">Connect Claude Code to tools via MCP</a>
+    <div class="desc">The official guide. Config locations on macOS, Windows, and Linux. How to scope MCPs per project versus globally. The right pattern for secrets handling. Worth re-reading after the Office and Legal launches added so many new connector shapes.</div>
     <div class="source">Claude Code Docs</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://www.developersdigest.tech/blog/claude-code-agent-teams-subagents-2026">Agent Teams, Subagents, and MCP: the 2026 playbook</a>
+    <div class="desc">The clearest explainer of how MCPs, Subagents, and Agent Teams compose. MCP is your tools layer. Subagents are scoped helpers in one session. Agent Teams is multi-session, multi-context coordination. Mismatching the three is the most common 2026 architecture bug.</div>
+    <div class="source">Developers Digest</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://www.essamamdani.com/blog/complete-guide-model-context-protocol-mcp-2026">The complete MCP guide, 2026</a>
+    <div class="desc">Essa Mamdani's long-read. Architecture, implementation, enterprise roadmap, and the security gotchas that keep tripping up early MCP deployments. Honest about where the protocol is still rough.</div>
+    <div class="source">essamamdani.com</div>
   </div>
 
   <div class="callout">
     <div class="callout-label">Also worth learning</div>
     <ul>
-      <li><a href="https://claude.com/blog/new-in-claude-managed-agents"><strong>Dreaming</strong></a> (research preview, May 6). Managed Agents now scan past sessions, extract recurring patterns, and curate memories so future runs self-improve</li>
-      <li><a href="https://claude.com/blog/new-in-claude-managed-agents"><strong>Multi-agent orchestration</strong></a> (public beta). A lead agent breaks a job into subtasks and delegates each to a specialist with its own model, prompt, and tools, all on a shared filesystem</li>
-      <li><a href="https://claude.com/blog/new-in-claude-managed-agents"><strong>Outcomes</strong></a>. Declare what success looks like. Claude iterates against the criterion until it hits, instead of stopping at "done-ish"</li>
-      <li><a href="https://claude.com/blog/new-in-claude-managed-agents"><strong>Webhooks for Managed Agents</strong></a>. Fire HTTP calls on state changes. Pairs with multi-agent orchestration for event-driven pipelines</li>
-      <li><a href="https://www.anthropic.com/news/claude-design-anthropic-labs"><strong>Claude Design</strong></a> (research preview). Opus 4.7-powered visual workspace that reads your codebase + design files to extract a design system, then reuses it across prototypes, slides, and one-pagers</li>
+      <li><a href="https://modelcontextprotocol.io/docs/develop/connect-local-servers"><strong>Connect to local MCP servers</strong></a>. Official protocol docs. Cleanest starting point for anyone building a server</li>
+      <li><a href="https://obot.ai/resources/learning-center/mcp-claude/"><strong>Top 10 MCP servers for Claude</strong></a>. Obot's curated list. GitHub, Slack, Postgres, Stripe, Figma, Docker, Kubernetes show up everywhere</li>
+      <li><a href="https://mcpplaygroundonline.com/blog/how-to-setup-mcp-claude-desktop"><strong>MCP setup in Claude Desktop</strong></a>. Step-by-step for the desktop app. JSON config quirks called out</li>
+      <li><a href="https://platform.claude.com/docs/en/managed-agents/multi-agent"><strong>Multi-agent sessions</strong></a>. How MCPs flow through to specialist sub-agents inside Managed Agents orchestration</li>
+      <li><a href="https://nimbalyst.com/blog/claude-code-subagents-guide/"><strong>Subagents practical 2026 guide</strong></a>. When to spawn one, when to scope back, and how MCP access propagates</li>
     </ul>
   </div>
 </div>
@@ -652,39 +652,39 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
   <div class="section-tag tag-releases">Claude Releases</div>
 
   <div class="item">
-    <a class="title" href="https://claude.com/blog/new-in-claude-managed-agents">Managed Agents adds Dreaming, Outcomes, and multi-agent orchestration</a>
-    <div class="desc">The headline ship from Code w/ Claude (May 6). <strong>Dreaming</strong> turns post-session reflection into curated memories. <strong>Outcomes</strong> let agents iterate against success criteria. <strong>Multi-agent orchestration</strong> lets a lead agent fan out to specialist sub-agents on a shared filesystem and pull their results back into its own context.</div>
-    <div class="source">Anthropic · SD Times</div>
+    <a class="title" href="https://claude.com/blog/claude-platform-on-aws">Claude Platform on AWS goes generally available</a>
+    <div class="desc">AWS is the first cloud to host Anthropic's native Claude Platform. Full Messages API, Files API, Batches, Managed Agents (beta), Skills (beta), MCP connector (beta), code execution, and the Console. <strong>IAM auth, CloudTrail audit, single AWS invoice</strong>. Different from Bedrock. Anthropic operates the service, data processed outside the AWS boundary. Launched May 11.</div>
+    <div class="source">Anthropic · AWS</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://www.anthropic.com/news/higher-limits-spacex">Anthropic doubles Claude limits + signs SpaceX Colossus 1 deal</a>
-    <div class="desc"><strong>Pro and Max five-hour limits doubled</strong>, peak-hour reductions removed, and Opus API rate limits raised. Backing this is a SpaceX agreement granting access to <strong>300+ MW</strong> and <strong>220,000+ Nvidia GPUs</strong> at the Memphis Colossus 1 data center within a month.</div>
-    <div class="source">Anthropic · The Register</div>
+    <a class="title" href="https://www.anthropic.com/news/claude-for-small-business">Claude for Small Business launches with a 10-city tour</a>
+    <div class="desc">Announced at Code w/ Claude, shipped May 13. <strong>15 workflows, 15 Skills, 8 connectors</strong> covering QuickBooks, PayPal, HubSpot, Canva, Docusign, Google Workspace, and Microsoft 365. Anthropic is running a free half-day AI fluency workshop for 100 SMB leaders per city. Chicago, Tulsa, Dallas, New Jersey, Baton Rouge, Birmingham, Salt Lake City, Baltimore, San Jose, Indianapolis.</div>
+    <div class="source">Anthropic · TechCrunch</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://www.anthropic.com/news/finance-agents">Ten preconfigured Claude agents for financial services</a>
-    <div class="desc">Drop-in templates for investment banks, asset managers, and insurers. Pitch builder, Meeting preparer, Earnings reviewer, Model builder, Market researcher, KYC screener, and more. Run as Cowork/Code plugins or as autonomous Managed Agents. Connectors include Moody's, D&amp;B, Verisk, Guidepoint, IBISWorld.</div>
-    <div class="source">Anthropic · Bloomberg</div>
+    <a class="title" href="https://www.lawnext.com/2026/05/anthropic-goes-all-in-on-legal-releasing-more-than-20-connectors-and-12-practice-area-plugins-for-claude.html">Claude for Legal ships 12 plugins, 80+ agents, 20+ connectors</a>
+    <div class="desc">Open-sourced on GitHub May 12. <strong>882 stars in 24 hours</strong>. Practice-area plugins for commercial, corporate, employment, privacy, IP, litigation, plus tools for law students and clinics. Connectors include Ironclad, DocuSign, iManage, Relativity, Everlaw, Harvey, and Thomson Reuters' CoCounsel + Westlaw. Carries full context across Word, Outlook, Excel, and PowerPoint.</div>
+    <div class="source">LawSites · ABA Journal</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://github.com/anthropics/claude-code/releases">Claude Code. Plugin URLs, gateway model discovery, project purge</a>
-    <div class="desc">New <code>--plugin-url &lt;url&gt;</code> flag fetches a plugin <code>.zip</code> from a URL for the current session. <code>/model</code> picker now reads from your gateway's <code>/v1/models</code> endpoint when <code>ANTHROPIC_BASE_URL</code> points at a compatible gateway. <code>Claude project purge [path]</code> wipes all Claude Code state for a project.</div>
-    <div class="source">GitHub · Anthropic</div>
+    <a class="title" href="https://claude.com/claude-for-microsoft-365">Claude for Microsoft 365 hits GA. Outlook in public beta</a>
+    <div class="desc">May 7. Excel, Word, and PowerPoint generally available as add-ins. Outlook is public beta on all paid plans. Cross-app context survives the jump. <strong>Excel edits multi-tab formulas without breaking them. PowerPoint generates native charts, not images.</strong> Word respects existing styles. Windows, Mac, web. Mobile not yet supported.</div>
+    <div class="source">Anthropic · Technobezz</div>
   </div>
 
   <div class="callout">
     <div class="callout-label">In brief</div>
     <ul>
-      <li><a href="https://claude.com/code-with-claude"><strong>Code w/ Claude SF</strong></a> (May 6). Keynote, workshops, and the formal debut of <strong>Claude Code on Desktop</strong>, the third surface alongside CLI and IDE</li>
-      <li><a href="https://claude.com/blog/code-review"><strong>Code Review</strong></a> feature shipped. Now used by every team inside Anthropic. Built on the public Claude Agent SDK</li>
-      <li><a href="https://claude.com/blog/connectors-for-everyday-life"><strong>Connector expansion</strong></a> beyond work tools. AllTrails, Instacart, Audible, Tripadvisor, Uber, and Spotify now first-class connectors in chat</li>
-      <li><a href="https://code.claude.com/docs/en/changelog"><strong>VS Code activation fix on Windows</strong></a>. Resolved the hardcoded build path bug that broke the bundled SDK</li>
-      <li><a href="https://code.claude.com/docs/en/changelog"><strong>Mantle endpoint auth fixed</strong></a>. Missing <code>x-api-key</code> header bug resolved</li>
-      <li><a href="https://code.claude.com/docs/en/changelog"><strong>X.509 cert-based Workload Identity Federation</strong></a> for Vertex AI now supported</li>
-      <li><a href="https://code.claude.com/docs/en/changelog"><strong>iTerm2 clipboard integration</strong></a> for <code>/copy</code> shipped. Auto-retry on transient MCP startup errors active</li>
+      <li><a href="https://code.claude.com/docs/en/changelog"><strong>Claude Code May 12 update</strong></a>. Agent <code>subagent_type</code> now case- and separator-insensitive (<code>"Code Reviewer"</code> resolves to <code>code-reviewer</code>). <code>/goal</code> no longer silently hangs when hooks are disabled</li>
+      <li><a href="https://code.claude.com/docs/en/changelog"><strong>Settings hot-reload regression fixed</strong></a>. Symlinked settings files no longer fire spurious <code>ConfigChange</code> hooks</li>
+      <li><a href="https://www.globenewswire.com/news-release/2026/05/07/3290414/0/en/snyk-embeds-anthropic-s-claude-to-advance-ai-powered-security-for-software-development.html"><strong>Snyk embeds Claude</strong></a>. Powers automated vulnerability discovery and developer-ready fixes across code, deps, containers, and AI-generated artifacts</li>
+      <li><a href="https://snyk.io/ai-partners/claude/"><strong>Evo by Snyk uses Claude</strong></a> to red-team running agents for prompt injection and data exfiltration. New MCP attack surface coverage</li>
+      <li><a href="https://www.pymnts.com/artificial-intelligence-2/2026/anthropic-launches-claude-ai-agents-for-small-business-finance/"><strong>SMB finance agents</strong></a>. Subset of Small Business focused on bookkeeping, invoicing, and cash flow. Wired into QuickBooks and PayPal</li>
+      <li><a href="https://aws.amazon.com/about-aws/whats-new/2026/05/claude-platform-aws/"><strong>AWS what's-new for Claude Platform</strong></a>. The official customer-facing landing if you're routing procurement through AWS</li>
+      <li><a href="https://claude.com/plugins/legal"><strong>Legal plugin landing page</strong></a>. Direct entry point with the 12 practice-area plugins and install instructions</li>
     </ul>
   </div>
 </div>
@@ -695,32 +695,32 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
   <div class="section-tag tag-community">Community & Open Source</div>
 
   <div class="item">
-    <a class="title" href="https://simonwillison.net/2026/May/6/code-w-claude-2026/">Simon Willison's Code w/ Claude live blog</a>
-    <div class="desc">The de-facto canonical recap. Real-time notes from the SF keynote, demos, and hallway conversations. The only writeup that captures both the announcements and what was conspicuously missing. Already cited by every secondary source.</div>
+    <a class="title" href="https://simonwillison.net/2026/May/7/xai-anthropic/">Simon Willison on the xAI/Anthropic Colossus deal</a>
+    <div class="desc">Sharp follow-up to last week's compute news. Walks through what <strong>300+ MW and 220,000+ Nvidia GPUs</strong> actually buy you and flags the Colossus environmental record. The gas turbines reportedly ran without Clean Air Act permits, with credible links to local hospital admission spikes. Worth the read before celebrating the capacity unlock.</div>
     <div class="source">simonwillison.net</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://claudemarketplaces.com/">Plugin marketplace clears 4,200 skills, 770 MCP servers</a>
-    <div class="desc">As of May 6, the cross-marketplace index counts 4,200+ skills, 770+ MCP servers, and 2,500+ plugin repos. Skyvern (browser automation via LLM + computer vision) is the community pick of the week. Anthropic's own <a href="https://github.com/anthropics/claude-plugins-official">official plugin directory</a> is now the curated reference.</div>
-    <div class="source">ClaudeMarketplaces</div>
+    <a class="title" href="https://github.com/dhofheinz/open-plugins">OpenPlugins, an AI-curated Claude Code marketplace</a>
+    <div class="desc">Community marketplace with the explicit goal of quality over quantity. Curated by an LLM judge that scores submissions against a public rubric. Picked up momentum this week as Claude for Legal demonstrated what high-quality, scoped plugin bundles look like.</div>
+    <div class="source">GitHub · dhofheinz</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://github.com/jeremylongshore/claude-code-plugins-plus-skills">claude-code-plugins-plus-skills. Now 425/2,810/200</a>
-    <div class="desc">Community super-marketplace updated mid-week: <strong>425 plugins, 2,810 skills, 200 agents</strong> with the <code>ccpi</code> CLI package manager. Mirrored at tonsofskills.com. Ships weekly community curation alongside the auto-indexed listings.</div>
+    <a class="title" href="https://github.com/jeremylongshore/claude-code-plugins-plus-skills">claude-code-plugins-plus-skills crosses 425/2,810/200</a>
+    <div class="desc">Community super-marketplace updated this week. <strong>425 plugins, 2,810 skills, 200 agents</strong> with the <code>ccpi</code> CLI package manager. Mirrored at tonsofskills.com. The community curated layer alongside Anthropic's official directory.</div>
     <div class="source">GitHub · jeremylongshore</div>
   </div>
 
   <div class="callout">
     <div class="callout-label">In brief</div>
     <ul>
-      <li><a href="https://github.com/Piebald-AI/claude-code-system-prompts"><strong>claude-code-system-prompts</strong></a>. Refreshed for this week's release. All 24 builtin tool descriptions, sub-agent prompts, and utility prompts</li>
-      <li><a href="https://opentweet.io/blog/build-ai-twitter-content-system-claude-guide"><strong>Build a Twitter content system with Claude</strong></a>. End-to-end pipeline using the OpenTweet MCP server</li>
-      <li><a href="https://claude.com/contact-sales/claude-for-oss"><strong>Claude for Open Source</strong></a>. Applications open through <strong>June 30, 2026</strong>, up to 10,000 recipients on a rolling basis</li>
-      <li><a href="https://composio.dev/toolkits/twitter/framework/claude-code"><strong>Composio's Twitter MCP toolkit</strong></a>. Drop-in MCP for Claude Code, no API wrangling</li>
-      <li><a href="https://www.reddit.com/r/ClaudeAI/"><strong>r/ClaudeAI consensus</strong></a>. Plan Mode + CLAUDE.md + LSP plugin is the new "starter pack" recommended to every newcomer</li>
-      <li><strong>Claude Code source leak</strong> follow-up. Frank Pereny's <a href="https://www.franksworld.com/2026/04/02/the-claude-code-leak-a-new-chapter-in-open-source-ai/">analysis</a> still circulating. Community has built mirror tools to introspect the leaked 512K-line bundle</li>
+      <li><a href="https://claudemarketplaces.com/"><strong>ClaudeMarketplaces dashboard</strong></a>. 4,200+ skills, 770+ MCP servers, 2,500+ marketplace repos as of May 14. <strong>150,000+ monthly visitors</strong></li>
+      <li><a href="https://github.com/anthropics/claude-plugins-official"><strong>Anthropic's official plugin directory</strong></a>. The curated reference. Submission process now formalized for third-party partners</li>
+      <li><a href="https://github.com/wshobson/agents"><strong>wshobson/agents</strong></a>. Multi-agent orchestration starter kit. Popular template for the Agent Teams pattern</li>
+      <li><a href="https://addyosmani.com/blog/code-agent-orchestra/"><strong>Addy Osmani's Code Agent Orchestra</strong></a>. What makes multi-agent coding actually work. Cuts past the demo hype</li>
+      <li><a href="https://shipyard.build/blog/claude-code-multi-agent/"><strong>Shipyard on multi-agent Claude Code</strong></a>. Field notes from teams running orchestrator + specialist patterns in production</li>
+      <li><a href="https://simonwillison.net/2026/May/6/vibe-coding-and-agentic-engineering/"><strong>Vibe coding meets agentic engineering</strong></a>. Simon's piece. 687 points on HN. The convergence is real and uncomfortable</li>
     </ul>
   </div>
 </div>
@@ -731,58 +731,54 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
   <div class="section-tag tag-landscape">AI / LLM Landscape</div>
 
   <div class="item">
-    <a class="title" href="https://openai.com/index/gpt-5-5-instant/">GPT-5.5 Instant becomes ChatGPT's default model</a>
-    <div class="desc">OpenAI replaced GPT-5.3 Instant with <strong>GPT-5.5 Instant</strong> as the default. <strong>52.5% fewer hallucinated claims</strong> on high-stakes prompts (medicine, law, finance), <strong>30% fewer words</strong> per response, workplace-safe tone. Memory now pulls from past chats, saved memories, and connected Gmail across all consumer plans.</div>
-    <div class="source">OpenAI · Axios</div>
+    <a class="title" href="https://blog.google/products-and-platforms/platforms/android/android-show-io-edition-2026/">Google I/O 2026. Gemini Intelligence becomes Android's runtime</a>
+    <div class="desc">The Android Show kicked off May 12. Google framed <strong>Gemini Intelligence</strong> as the new intelligence layer underneath Android itself, not a feature. Examples: Chrome auto-browse, AI-generated widgets, Gboard Rambler dictation cleanup, Android Auto context use. <strong>Googlebooks</strong>, AI-native laptops, land this fall. Full keynote May 19. Gemini 4 expected.</div>
+    <div class="source">Google · Tom's Guide</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://www.bloomberg.com/news/articles/2026-04-06/broadcom-confirms-deal-to-ship-google-tpu-chips-to-anthropic">Anthropic crosses $30B ARR. Passes OpenAI for the first time</a>
-    <div class="desc">$1B → $30B in 15 months, 3.3× growth in the last four. <strong>1,000+ enterprise customers</strong> paying $1M+/year, ~80% enterprise revenue mix. Claude Code alone hit $1B ARR six months after GA. Anthropic also closed a 3.5 GW compute deal with Google + Broadcom and the SpaceX Colossus 1 deal noted above.</div>
-    <div class="source">Bloomberg · The Information</div>
+    <a class="title" href="https://9to5google.com/2026/05/12/deepmind-googlebook-magic-pointer/">DeepMind's Magic Pointer demo lands with Gemini</a>
+    <div class="desc">Research project that fuses cursor awareness, voice, and contextual reasoning. Point at a chart, say "merge those," watch it happen. Ships first inside Googlebook and Gemini in Chrome. First credible attempt at a Vision-Language-Action loop wired to a real OS.</div>
+    <div class="source">9to5Google · DeepMind</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/">Gemma 4. Google's most capable open model</a>
-    <div class="desc">Apache 2.0, four sizes (E2B, E4B, 26B A4B, 31B), <strong>256K context</strong>, 140+ languages, native multimodality (audio on small variants). Built-in step-by-step reasoning mode and structured tool use for agentic workflows. Released early April but the May Cloud rollout is when it became broadly usable.</div>
-    <div class="source">Google · DeepMind</div>
+    <a class="title" href="https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/">GPT-5.5 Instant settles in as ChatGPT's default</a>
+    <div class="desc">A week post-launch, OpenAI's claims are holding. <strong>52.5% fewer hallucinated claims</strong> on high-stakes prompts. Memory now pulls across past chats, saved memories, and connected Gmail on every consumer plan. Quietly the bigger product shift than Code w/ Claude this week.</div>
+    <div class="source">TechCrunch · OpenAI</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://siliconangle.com/2026/05/06/anthropic-letting-claude-agents-dream-dont-sleep-job/">SiliconANGLE: "Anthropic is letting Claude agents 'dream'"</a>
-    <div class="desc">Sharp framing of Dreaming as the first production-grade implementation of off-task self-improvement in a commercial agent product. The piece traces how this shifts the agent value prop from "completes tasks" to "gets better at completing your specific tasks over time."</div>
-    <div class="source">SiliconANGLE</div>
+    <a class="title" href="https://codersera.com/blog/best-open-source-llm-2026-llama-4-qwen-3-5-deepseek-v4-gemma-4-mistral/">Open-source frontier: Llama 4, Qwen 3.5, DeepSeek V4, Gemma 4, Mistral Medium 3.5</a>
+    <div class="desc"><strong>DeepSeek V4 Pro</strong> leads raw capability with 80.6 SWE-Bench Verified and 1M context. <strong>Llama 4 Scout</strong> brought the first 10M-token open context window. <strong>Mistral Medium 3.5</strong> hits 77.6% SWE-Bench on a 128B dense model. The open frontier is no longer a year behind. It's a quarter, on price-performance.</div>
+    <div class="source">Codersera</div>
   </div>
 
   <div class="callout">
     <div class="callout-label">More signal</div>
     <ul>
-      <li><a href="https://www.infoq.com/news/2026/05/cloudflare-llm-infrastructure/"><strong>Cloudflare's split-inference infrastructure</strong></a>. Separates input processing from output generation, custom inference engine for tighter GPU utilization</li>
-      <li><a href="https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression/"><strong>TurboQuant at ICLR 2026</strong></a>. Google's KV-cache compression algorithm using PolarQuant rotation + Quantized Johnson-Lindenstrauss. Meaningful memory savings on long context</li>
-      <li><a href="https://red.anthropic.com/2026/mythos-preview/"><strong>Claude Mythos</strong></a>. Restricted frontier model with autonomous offensive cyber capabilities. Internal testing showed it identifying and exploiting thousands of zero-days in hardened envs</li>
-      <li><a href="https://arxiv.org/abs/2604.08523"><strong>ClawBench</strong></a>. 153-task agent eval across 144 live production sites. Best frontier score is <strong>Claude Sonnet 4.6 at 33.3%</strong>, illustrating how far real-world agent reliability still has to go</li>
-      <li><a href="https://press.airstreet.com/p/state-of-ai-may-2026"><strong>Air Street's State of AI: May 2026</strong></a>. Monthly snapshot, strong on capital flows and regulation</li>
-      <li><a href="https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api/"><strong>OpenAI realtime voice trio</strong></a>. GPT-Realtime-2, GPT-Realtime-Translate, GPT-Realtime-Whisper shipped same week as 5.5 Instant</li>
-      <li><a href="https://openai.com/index/gpt-5-5-with-trusted-access-for-cyber/"><strong>GPT-5.5-Cyber</strong></a>. Security-focused variant announced. Positions OpenAI directly opposite Anthropic's Cyber Verification Program</li>
+      <li><a href="https://openai.com/index/introducing-gpt-5-5/"><strong>OpenAI introduces GPT-5.5</strong></a>. The full family launch post. Reference for what shipped in the API as <code>chat-latest</code></li>
+      <li><a href="https://venturebeat.com/technology/googles-new-deep-research-and-deep-research-max-agents-can-search-the-web-and-your-private-data"><strong>Google Deep Research Max</strong></a>. Autonomous research agent that searches the web <em>and</em> your private data, on Gemini 3.1 Pro</li>
+      <li><a href="https://sdtimes.com/ai/may-8-2026-ai-updates-from-the-past-week-coder-agents-launch-snyk-claude-partnership-opsera-cursor-partnership-and-more/"><strong>SD Times' weekly AI roundup</strong></a>. Coder Agents, Snyk-Claude, Opsera-Cursor partnerships. The infra layer is consolidating fast</li>
+      <li><a href="https://whatllm.org/blog/new-ai-models-may-2026"><strong>WhatLLM: new models May 2026</strong></a>. Architecture took the stage. SubQ shipped the first commercial subquadratic LLM with <strong>12M-token context</strong></li>
+      <li><a href="https://llm-stats.com/ai-news"><strong>LLM-stats news feed</strong></a>. Real-time leaderboard movement. Claude Mythos Preview still leads GPQA Diamond at 94.6%</li>
+      <li><a href="https://www.axios.com/2026/05/05/openai-chatgpt-update-default-model"><strong>Axios on the GPT-5.5 default switch</strong></a>. Workplace-safe tone, 30% fewer words per response, less sycophancy by design</li>
     </ul>
   </div>
 </div>
 
 <nav class="issue-nav">
-  <a class="nav-prev" href="003.html">
+  <a class="nav-prev" href="004.html">
     <span class="nav-meta"><span class="nav-arrow">&larr;</span> Previous</span>
-    <span class="nav-label">Issue #003 &middot; May 1</span>
+    <span class="nav-label">Issue #004 &middot; May 8</span>
   </a>
   <a class="nav-archive" href="../">All issues</a>
-  <a class="nav-next" href="005.html">
-    <span class="nav-meta">Next <span class="nav-arrow">&rarr;</span></span>
-    <span class="nav-label">Issue #005 &middot; May 15</span>
-  </a>
+  <span class="nav-empty"></span>
 </nav>
 
 <div class="footer">
-  <p>Claude & AI Weekly #4 · Curated by Claude</p>
-  <p>Next issue · Friday, May 15</p>
+  <p>Claude & AI Weekly #5 · Curated by Claude</p>
+  <p>Next issue · Friday, May 22</p>
 </div>
 
 </div>
