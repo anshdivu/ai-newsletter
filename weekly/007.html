@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Claude &amp; AI Weekly · Issue #6, May 22, 2026</title>
-<meta name="description" content="Claude Code's agent view, MCP tunnels for Managed Agents, a Computer Use spotlight, and Gemini 3.5 at Google I/O.">
+<title>Claude &amp; AI Weekly · Issue #7, May 29, 2026</title>
+<meta name="description" content="Claude Opus 4.8 lands with effort control and dynamic workflows, Mythos Preview surfaces, Project Glasswing posts 10,000 bugs, and OpenAI claims a discrete geometry result.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Claude & AI Weekly">
-<meta property="og:title" content="Claude &amp; AI Weekly · Issue #006: Agent view, private MCPs, and Gemini 3.5">
-<meta property="og:description" content="Claude Code's agent view, MCP tunnels for Managed Agents, a Computer Use spotlight, and Gemini 3.5 at Google I/O.">
-<meta property="og:url" content="https://anshdivu.github.io/ai-newsletter/weekly/006.html">
-<meta property="og:image" content="https://anshdivu.github.io/ai-newsletter/og/006.png">
+<meta property="og:title" content="Claude &amp; AI Weekly · Issue #007: Opus 4.8, dynamic workflows, and Project Glasswing">
+<meta property="og:description" content="Claude Opus 4.8 lands with effort control and dynamic workflows, Mythos Preview surfaces, Project Glasswing posts 10,000 bugs, and OpenAI claims a discrete geometry result.">
+<meta property="og:url" content="https://anshdivu.github.io/ai-newsletter/weekly/007.html">
+<meta property="og:image" content="https://anshdivu.github.io/ai-newsletter/og/007.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Claude &amp; AI Weekly — Issue #006, May 22, 2026">
-<meta property="article:published_time" content="2026-05-22">
+<meta property="og:image:alt" content="Claude &amp; AI Weekly — Issue #007, May 29, 2026">
+<meta property="article:published_time" content="2026-05-29">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Claude &amp; AI Weekly · Issue #006: Agent view, private MCPs, and Gemini 3.5">
-<meta name="twitter:description" content="Claude Code's agent view, MCP tunnels for Managed Agents, a Computer Use spotlight, and Gemini 3.5 at Google I/O.">
-<meta name="twitter:image" content="https://anshdivu.github.io/ai-newsletter/og/006.png">
-<link rel="canonical" href="https://anshdivu.github.io/ai-newsletter/weekly/006.html">
+<meta name="twitter:title" content="Claude &amp; AI Weekly · Issue #007: Opus 4.8, dynamic workflows, and Project Glasswing">
+<meta name="twitter:description" content="Claude Opus 4.8 lands with effort control and dynamic workflows, Mythos Preview surfaces, Project Glasswing posts 10,000 bugs, and OpenAI claims a discrete geometry result.">
+<meta name="twitter:image" content="https://anshdivu.github.io/ai-newsletter/og/007.png">
+<link rel="canonical" href="https://anshdivu.github.io/ai-newsletter/weekly/007.html">
 <base target="_blank">
 <script>
   // Apply persisted theme before paint to avoid flash
@@ -564,7 +564,7 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
 <div class="wrap">
 
 <div class="masthead">
-  <div class="issue">#6 · May 22, 2026</div>
+  <div class="issue">#7 · May 29, 2026</div>
   <h1>Claude <span>&</span> AI Weekly</h1>
   <div class="tagline">Features, tips, community, and the broader AI landscape. In 5 minutes</div>
 </div>
@@ -574,34 +574,34 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
   <div class="section-tag tag-tips">Tips & Tricks</div>
 
   <div class="tip">
-    <div class="tip-label">Context engineering · The AI Corner</div>
-    <div class="tip-text"><strong>Context engineering replaced prompt engineering as the real lever.</strong> The model is rarely the bottleneck now. What you load, and in what order, beats how cleverly you phrase the ask. Build the context system first. Prompt second. <a href="https://www.the-ai-corner.com/p/claude-best-practices-power-user-guide-2026">Power user guide →</a></div>
+    <div class="tip-label">Try effort control before you blame the model · Anthropic</div>
+    <div class="tip-text"><strong>Opus 4.8 ships a per-response effort dial.</strong> Crank it up when a one-shot answer keeps drifting. Drop it for quick rewrites and you spend rate limits slower. The model picks how hard to think, not how hard to talk. <a href="https://www.anthropic.com/news/claude-opus-4-8">Effort control →</a></div>
   </div>
 
   <div class="tip">
-    <div class="tip-label">Outcome-first prompts · Anthropic docs</div>
-    <div class="tip-text"><strong>Define what done looks like, not the steps to get there.</strong> Opus 4.7 responds better to a clear destination than a step list. State the target, the constraints, and the output format. Then let Claude pick the route. <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices">Prompting best practices →</a></div>
+    <div class="tip-label">Add the word "workflow" to your prompt · Claude Code docs</div>
+    <div class="tip-text"><strong>Drop "workflow" anywhere in the ask and Claude Code writes a JavaScript orchestrator instead of doing the work inline.</strong> The script spawns subagents in parallel, runs in the background, and your session stays responsive. Use it for codebase audits and migrations. Requires v2.1.154+. <a href="https://code.claude.com/docs/en/workflows">Dynamic workflows →</a></div>
   </div>
 
   <div class="tip">
-    <div class="tip-label">Verification loops · Builder.io</div>
-    <div class="tip-text"><strong>Hand Claude a way to check its own work.</strong> Put the test command, the linter, or the expected output in the prompt. It runs, sees the failures, and fixes them with no nudging. Boris Cherny pegs this at a 2-3x quality jump on its own. <a href="https://www.builder.io/blog/claude-code-tips-best-practices">50 Claude Code tips →</a></div>
+    <div class="tip-label">Build the CLAUDE.md before you build the prompt · Power user guide</div>
+    <div class="tip-text"><strong>Stack, naming, folder layout, and explicit "do NOT" rules in CLAUDE.md make Claude Code 3 to 5x more accurate first try.</strong> Every time Claude does something wrong, add the rule. The file is your bug log turned into context. <a href="https://www.the-ai-corner.com/p/claude-best-practices-power-user-guide-2026">Power user guide →</a></div>
   </div>
 
   <div class="tip">
-    <div class="tip-label">Session hygiene · Claude Code docs</div>
-    <div class="tip-text"><strong>Start a fresh session per task.</strong> Run <code>/clear</code> between unrelated work. Compact around 70% context. A full window means forgotten instructions and sloppier edits. Keep each session narrow and it stays sharp. <a href="https://code.claude.com/docs/en/best-practices">Official best practices →</a></div>
+    <div class="tip-label">Honesty is a prompting feature now · Anthropic</div>
+    <div class="tip-text"><strong>Opus 4.8 is roughly 4x less likely than 4.7 to ship code with a quiet bug it spotted.</strong> Ask it what it is unsure about before you ship. It will tell you what it skipped, what it stubbed, and what it cannot verify. Useful even on tasks that look done. <a href="https://simonwillison.net/2026/May/28/claude-opus-4-8/">Simon's read →</a></div>
   </div>
 
   <div class="callout">
     <div class="callout-label">More to explore</div>
     <ul>
-      <li><a href="https://www.clarista.io/blog/claude-code-best-practices"><strong>18 patterns from production teams</strong></a>. What actually holds up past the demo, refreshed for 2026</li>
-      <li><a href="https://aiorg.dev/blog/claude-code-best-practices"><strong>15 tips from 6 projects</strong></a>. Field notes, not theory. Good for a second pass</li>
-      <li><a href="https://www.mylivingai.com/claude-ai-full-tutorial-may-2026-the-settings-models-features-most-people-miss/"><strong>Claude AI full tutorial, May 2026</strong></a>. The settings, models, and features most people miss</li>
-      <li><a href="https://sureprompts.com/blog/how-to-use-claude"><strong>35 advanced tips most people skip</strong></a>. Deeper cuts for daily power users</li>
-      <li><a href="https://nexasphere.io/blog/claude-ai-tips-tricks-2026"><strong>25 ways to get better results</strong></a>. Tight starter list for new team members</li>
-      <li><a href="https://aimaker.substack.com/p/anthropic-claude-updates-q1-2026-guide"><strong>Every Claude update in Q1 2026</strong></a>. Tested by two builders, sorted by what's worth your time</li>
+      <li><a href="https://support.claude.com/en/articles/14554000-claude-code-power-user-tips"><strong>Anthropic's own power user tips</strong></a>. The official short list. Read it once before your next session</li>
+      <li><a href="https://blink.new/blog/claude-code-tips-tricks"><strong>25 things power users do differently</strong></a>. Field notes from real workflows, not the docs</li>
+      <li><a href="https://www.kieranflanagan.io/p/how-power-users-actually-set-up-claude"><strong>How power users actually set up Claude Code</strong></a>. The setup nobody writes down until they have rebuilt it twice</li>
+      <li><a href="https://chatpromptgenius.com/claude-ai-prompt-engineering-guide-advanced-2026-techniques/"><strong>Advanced prompt techniques, 2026</strong></a>. Native XML, attention weighting, two-pass long context</li>
+      <li><a href="https://medium.com/nginity/claude-code-ai-agent-skills-12-prompts-that-became-production-skills-7d5e789acc3d"><strong>12 prompts that became production skills</strong></a>. Where to draw the line between a prompt and a SKILL.md</li>
+      <li><a href="https://github.com/FlorianBruniaux/claude-code-ultimate-guide"><strong>Claude Code ultimate guide</strong></a>. One repo, beginner to power user, with cheatsheets and quizzes</li>
     </ul>
   </div>
 </div>
@@ -613,36 +613,36 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
 
   <div class="spotlight">
     <div class="spot-label">This week</div>
-    <div class="spot-title">Computer Use, when Claude drives the screen</div>
-    <div class="spot-desc"><strong>Computer Use lets Claude operate a machine the way a person does.</strong> It reads the screen from screenshots, moves the cursor, clicks, types, and works across apps with no API needed. Two routes exist. The API tool runs actions inside your own sandbox for automation you ship into a product. Cowork and Claude Code run them on your own machine for everyday work. Prompt injection resistance is trained in, and on by default with the official tool header. Reach for it when the target has no clean API and a human would just point and click.</div>
+    <div class="spot-title">Dynamic Workflows, when Claude writes its own orchestrator</div>
+    <div class="spot-desc"><strong>A dynamic workflow is a JavaScript script that Claude writes to coordinate subagents at scale.</strong> You describe the task. Claude drafts the script. A runtime executes it in the background while your chat stays responsive. The script is rerunnable, so the second pass costs less than the first. Reach for it when one agent will not finish in one context, or when the work splits cleanly across files or repos. Codebase audits, large migrations, cross-checked research. Add the word <code>workflow</code> to a prompt and Claude Code starts writing one. Requires v2.1.154 and Opus 4.8 to feel like the demo.</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://claude.com/blog/best-practices-for-computer-and-browser-use-with-claude">Best practices for computer and browser use</a>
-    <div class="desc">Anthropic's own playbook. How to scope a task, structure the screenshot loop, and keep long runs from drifting. Read it before you wire Computer Use into anything that touches real accounts.</div>
+    <a class="title" href="https://code.claude.com/docs/en/workflows">Orchestrate subagents at scale</a>
+    <div class="desc">The official docs. How the runtime spawns subagents, what survives across rerun, and how to wire results back to your main session. Start here before you watch a tutorial.</div>
+    <div class="source">Claude Code Docs</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://claude.com/blog/introducing-dynamic-workflows-in-claude-code">Introducing dynamic workflows in Claude Code</a>
+    <div class="desc">Anthropic's launch post. The framing they want you to keep: a workflow is code Claude writes once and you rerun forever. Three real examples, including a thousand-file migration.</div>
     <div class="source">Anthropic</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://blog.laozhang.ai/en/posts/claude-computer-use">Computer Use in 2026: API tool vs Cowork vs Claude Code</a>
-    <div class="desc">A clear breakdown of the three contracts. The API tool for product automation. Cowork for desktop work without a terminal. Claude Code for developers. Picking the wrong one is the most common Computer Use mistake.</div>
-    <div class="source">LaoZhang AI</div>
-  </div>
-
-  <div class="item">
-    <a class="title" href="https://datasciencedojo.com/blog/prompt-injection-explained/">Prompt injection and Claude Computer Use</a>
-    <div class="desc">The security side. A web page or document can carry instructions aimed at your agent. This guide walks the attack shapes and what the trained-in defenses do and do not cover.</div>
-    <div class="source">Data Science Dojo</div>
+    <a class="title" href="https://www.geeky-gadgets.com/anthropic-claude-code-workflows/">Workflows, token tax, and what changes for you</a>
+    <div class="desc">A practical breakdown of where workflows actually save tokens, where they do not, and the failure modes worth knowing before you point one at production code.</div>
+    <div class="source">Geeky Gadgets</div>
   </div>
 
   <div class="callout">
     <div class="callout-label">Also worth learning</div>
     <ul>
-      <li><a href="https://nohacks.co/blog/agentic-browser-landscape-2026"><strong>The agentic browser landscape, 2026</strong></a>. Where Claude sits next to every other screen-driving agent</li>
-      <li><a href="https://dataresearchtools.com/agentic-browser-revolution-2026/"><strong>The agentic browser revolution</strong></a>. Claude, OpenAI Operator, and Stagehand compared head to head</li>
-      <li><a href="https://www.cnbc.com/2026/03/24/anthropic-claude-ai-agent-use-computer-finish-tasks.html"><strong>Claude can now use your computer</strong></a>. CNBC's original framing, useful background</li>
-      <li><a href="https://siliconangle.com/2026/03/23/anthropics-claude-gets-computer-use-capabilities-preview/"><strong>Computer Use in preview</strong></a>. SiliconANGLE on how the capability first shipped</li>
-      <li><a href="https://tech-insider.org/anthropic-claude-computer-use-agent-2026/"><strong>What $20/mo actually gets you</strong></a>. An honest read on cost and current limits</li>
+      <li><a href="https://agentpedia.codes/blog/claude-opus-4-8-claude-code-workflows"><strong>Step-by-step dynamic workflows guide</strong></a>. The first walkthrough that goes deeper than the launch post</li>
+      <li><a href="https://techcrunch.com/2026/05/28/anthropic-releases-opus-4-8-with-new-dynamic-workflow-tool/"><strong>TechCrunch on the workflow tool</strong></a>. Industry framing. Why this is the lever for "agents that finish"</li>
+      <li><a href="https://thenewstack.io/claude-opus-48-release/"><strong>Effort controls and workflows in one place</strong></a>. The New Stack's tour of every Opus 4.8 surface change</li>
+      <li><a href="https://www.infoq.com/news/2026/05/code-with-claude/"><strong>Proactive workflows from Code w/ Claude</strong></a>. Background reading on where this lands in the broader agent roadmap</li>
+      <li><a href="https://towardsdatascience.com/from-ad-hoc-prompting-to-repeatable-ai-workflows-with-claude-code-skills/"><strong>From ad-hoc prompting to repeatable workflows</strong></a>. The mental shift from "ask Claude" to "Claude writes the script"</li>
     </ul>
   </div>
 </div>
@@ -653,39 +653,39 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
   <div class="section-tag tag-releases">Claude Releases</div>
 
   <div class="item">
-    <a class="title" href="https://code.claude.com/docs/en/whats-new">Claude Code adds agent view for every session</a>
-    <div class="desc"><code>claude agents</code> opens one screen for every Claude Code session. See what is running, what is blocked on you, and what is done. Background sessions started with <code>claude --bg</code> now show up there too.</div>
-    <div class="source">Claude Code Docs</div>
-  </div>
-
-  <div class="item">
-    <a class="title" href="https://9to5mac.com/2026/05/19/anthropic-enhances-claude-managed-agents-with-two-new-privacy-and-security-features/">Managed Agents gets MCP tunnels and self-hosted sandboxes</a>
-    <div class="desc">Shipped May 19. <strong>MCP tunnels</strong> let agents reach servers inside a private network with no public exposure. <strong>Self-hosted sandboxes</strong> run tool execution on your own infrastructure, or on Cloudflare, Daytona, Modal, and Vercel. Compute and data stay inside your perimeter.</div>
-    <div class="source">Anthropic · 9to5Mac</div>
-  </div>
-
-  <div class="item">
-    <a class="title" href="https://releasebot.io/updates/anthropic/claude">Fast mode now runs on Opus 4.7</a>
-    <div class="desc">Fast mode, the low-latency research preview, now serves <strong>Opus 4.7</strong>. Much faster token generation at premium pricing. Built for interactive loops where waiting on output breaks the flow.</div>
+    <a class="title" href="https://www.anthropic.com/news/claude-opus-4-8">Claude Opus 4.8 ships with bigger jumps in honesty than in raw score</a>
+    <div class="desc">Released May 28. <strong>Agentic coding 64.3 to 69.2</strong>. <strong>Multidisciplinary reasoning with tools 54.7 to 57.9</strong>. <strong>Knowledge work 1753 to 1890</strong>. The bigger story is honesty. Anthropic reports Opus 4.8 is about <strong>4x less likely</strong> than 4.7 to let a flaw in code it wrote pass unremarked. Pricing is unchanged.</div>
     <div class="source">Anthropic</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://claudefa.st/blog/guide/changelog">/code-review reports correctness bugs by effort level</a>
-    <div class="desc"><code>/code-review high</code> now surfaces correctness bugs at a chosen effort level. Pass <code>--comment</code> to post findings as inline GitHub PR comments. The review step moves closer to where the code actually lands.</div>
-    <div class="source">Claude Code Changelog</div>
+    <a class="title" href="https://claude.com/blog/introducing-dynamic-workflows-in-claude-code">Dynamic workflows and effort control land in Claude Code</a>
+    <div class="desc"><strong>Dynamic workflows</strong> let Claude orchestrate hundreds of subagents from a script it writes for you. <strong>Effort control</strong> exposes the thinking dial on claude.ai and Cowork. Fast mode for 4.8 runs at 2.5x speed and is now <strong>3x cheaper</strong> than on earlier models. Requires Claude Code v2.1.154.</div>
+    <div class="source">Anthropic</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://red.anthropic.com/2026/mythos-preview/">Claude Mythos Preview surfaces publicly</a>
+    <div class="desc">A frontier-class model behind Anthropic's cyber work. Anthropic says it autonomously found and exploited a <strong>17-year-old RCE in FreeBSD's NFS</strong> and now leads <strong>SWE-bench Verified at 93.9%</strong>. General availability is gated on safeguards Anthropic has not finished building. Treat the timeline as soft.</div>
+    <div class="source">Anthropic Red</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://github.blog/changelog/2026-05-28-claude-opus-4-8-is-generally-available-for-github-copilot/">Opus 4.8 is GA in GitHub Copilot the day it ships</a>
+    <div class="desc">Same-day Copilot rollout. Pick Opus 4.8 in the model menu in VS Code, JetBrains, and on github.com. Useful detail for anyone who lives mostly inside Copilot Chat and Edits.</div>
+    <div class="source">GitHub Changelog</div>
   </div>
 
   <div class="callout">
     <div class="callout-label">In brief</div>
     <ul>
-      <li><a href="https://code.claude.com/docs/en/whats-new"><strong>/goal</strong></a>. Sets a completion condition and keeps Claude working across turns until it holds</li>
-      <li><a href="https://code.claude.com/docs/en/whats-new"><strong>Rewind: Summarize up to here</strong></a>. Compress earlier context instead of dropping it</li>
-      <li><a href="https://releasebot.io/updates/anthropic/claude-code"><strong>/resume for background sessions</strong></a>. <code>claude --bg</code> sessions list alongside interactive ones, marked <code>bg</code></li>
-      <li><a href="https://releasebot.io/updates/anthropic/claude-code"><strong>/model is now per-session</strong></a>. Press <code>d</code> in the picker to set a new default</li>
-      <li><a href="https://support.claude.com/en/articles/12138966-release-notes"><strong>claude plugin details</strong></a>. Component inventory plus projected per-session token cost</li>
-      <li><a href="https://releasebot.io/updates/anthropic/claude"><strong>Cache diagnostics public beta</strong></a>. The API reports <code>cache_miss_reason</code> when a cache prefix diverges</li>
-      <li><a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md"><strong>PostToolUse hooks</strong></a>. <code>updatedToolOutput</code> can now replace output for all tools, not just MCP</li>
+      <li><a href="https://code.claude.com/docs/en/whats-new"><strong>Ultracode</strong></a>. <code>/effort ultracode</code> sets xhigh reasoning and auto-plans a workflow for every substantive task</li>
+      <li><a href="https://claudefa.st/blog/guide/changelog"><strong>/usage breakdown</strong></a>. Per-category cost view across skills, subagents, plugins, and each MCP server</li>
+      <li><a href="https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md"><strong>github/git plugin gets skipLfs</strong></a>. Marketplace sources can skip large LFS payloads at install</li>
+      <li><a href="https://www.anthropic.com/research/glasswing-initial-update"><strong>Glasswing first update</strong></a>. 10,000+ high or critical bugs across the most widely used software, ~50 partner orgs</li>
+      <li><a href="https://www.prnewswire.com/news-releases/mind-becomes-first-data-security-company-accepted-into-anthropics-cyber-verification-program-302776824.html"><strong>MIND joins Cyber Verification Program</strong></a>. First data security company verified. Defensive dual-use unlocked for vetted teams</li>
+      <li><a href="https://www.inc.com/ben-sherry/anthropic-says-its-latest-claude-model-is-the-most-honest-yet/91351657"><strong>"Most honest model yet"</strong></a>. Anthropic's own framing of the 4.8 alignment work</li>
+      <li><a href="https://9to5mac.com/2026/05/28/anthropic-upgrades-claude-with-new-opus-4-8-model-heres-whats-new/"><strong>9to5Mac on 4.8</strong></a>. Cleanest one-page summary for skimmers</li>
     </ul>
   </div>
 </div>
@@ -696,32 +696,32 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
   <div class="section-tag tag-community">Community & Open Source</div>
 
   <div class="item">
-    <a class="title" href="https://www.agensi.io/learn/open-source-claude-code-skills-github">Obra's Superpowers is now the biggest community skill library</a>
-    <div class="desc"><strong>40.9k stars, 3.1k forks.</strong> Obra's Superpowers collection has grown into the largest community-built skill library in the ecosystem. Curated skills for testing, specs, and the repeatable engineering work nobody wants to retype.</div>
-    <div class="source">agensi.io</div>
+    <a class="title" href="https://github.com/travisvn/awesome-claude-skills">awesome-claude-skills crosses 8.7k stars</a>
+    <div class="desc">The most-cited curated index of Claude skills, plugins, and MCP servers, refreshed daily. Heavy on engineering-task skills like refactor, code review, test gen. A good first stop if you're picking what to install in a new repo.</div>
+    <div class="source">GitHub · travisvn</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://github.com/jeremylongshore/claude-code-plugins-plus-skills">claude-code-plugins-plus-skills grades an A in week 21</a>
-    <div class="desc">The community super-marketplace landed an A for the week of May 20. <strong>425 plugins, 2,810 skills, 200 agents</strong>, all installable through the <code>ccpi</code> CLI. Mirrored at tonsofskills.com.</div>
-    <div class="source">GitHub · jeremylongshore</div>
+    <a class="title" href="https://knightli.com/en/2026/05/23/claude-plugins-official-claude-code-plugin-directory/">Plugin marketplace turns into a real ecosystem</a>
+    <div class="desc">Since v2.1.108 Claude Code accepts third-party plugin sources by URL or local path. The May write-up walks the install model, the discovery flow in <code>/plugin</code>, and the security tradeoffs of pulling code from a stranger's GitHub.</div>
+    <div class="source">knightli</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://github.com/quemsah/awesome-claude-plugins">awesome-claude-plugins now indexes 17,826 repos</a>
-    <div class="desc">An automated census of Claude Code plugin adoption across GitHub, refreshed by n8n workflows. As of May 20 it tracks <strong>17,826 repositories</strong>. A clean read on how fast the ecosystem still grows.</div>
-    <div class="source">GitHub · quemsah</div>
+    <a class="title" href="https://claudemarketplaces.com/">claudemarketplaces.com indexes the whole landscape</a>
+    <div class="desc">A community dashboard tracking <strong>6,700+ skills, 2,500+ marketplaces, 840+ MCP servers</strong>. Filterable, with install snippets per entry. The fastest way to see whether a problem already has a community solution.</div>
+    <div class="source">claudemarketplaces.com</div>
   </div>
 
   <div class="callout">
     <div class="callout-label">In brief</div>
     <ul>
-      <li><a href="https://claudemarketplaces.com/"><strong>ClaudeMarketplaces dashboard</strong></a>. 6,700+ skills, 2,500+ marketplaces, 840+ MCP servers indexed</li>
-      <li><a href="https://github.com/anthropics/claude-plugins-official"><strong>Anthropic's official plugin directory</strong></a>. The curated reference, separate from the community marketplace</li>
-      <li><a href="https://blog.buildbetter.ai/best-open-source-skills-for-claude-code-in-2026-complete-guide/"><strong>Best open-source skills, 2026 guide</strong></a>. What to install first, with setup notes</li>
-      <li><a href="https://www.firecrawl.dev/blog/best-claude-code-skills"><strong>Best Claude Code skills to try</strong></a>. Firecrawl's shortlist for real work</li>
-      <li><a href="https://dev.to/muhammad_moeed/claude-code-skills-a-practical-guide-for-2026-3f6p"><strong>What a SKILL.md actually is</strong></a>. The practical guide for writing your first one</li>
-      <li><a href="https://www.agensi.io/learn/open-source-claude-code-skills-github"><strong>115,000+ daily active Claude Code developers</strong></a>. The adoption number behind the skill boom</li>
+      <li><a href="https://github.com/anthropics/claude-plugins-official"><strong>claude-plugins-official</strong></a>. Anthropic's curated reference directory. Smaller, vetted, the safe default</li>
+      <li><a href="https://github.com/ComposioHQ/awesome-claude-skills"><strong>Composio's awesome-claude-skills fork</strong></a>. A second curated list. Different cuts, useful as a cross-check</li>
+      <li><a href="https://github.com/The-Focus-AI/twitter-skill"><strong>Twitter/X skill with OAuth 2.0 PKCE</strong></a>. Tweets, timeline, lists, engagement, all inside Claude Code</li>
+      <li><a href="https://github.com/rohunvora/x-research-skill"><strong>x-research-skill</strong></a>. Agentic X search, thread following, deep dives, sourced briefings</li>
+      <li><a href="https://www.firecrawl.dev/blog/best-claude-code-skills"><strong>Firecrawl's best skills shortlist</strong></a>. What to install first if you only pick five</li>
+      <li><a href="https://blog.buildbetter.ai/best-open-source-skills-for-claude-code-in-2026-complete-guide/"><strong>Best open-source skills, 2026 guide</strong></a>. With setup notes, not just names</li>
     </ul>
   </div>
 </div>
@@ -732,57 +732,54 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
   <div class="section-tag tag-landscape">AI / LLM Landscape</div>
 
   <div class="item">
-    <a class="title" href="https://developers.googleblog.com/all-the-news-from-the-google-io-2026-developer-keynote/">Google I/O 2026: Gemini 3.5, not the Gemini 4 everyone expected</a>
-    <div class="desc">I/O ran May 19. Google shipped the <strong>Gemini 3.5</strong> series, not Gemini 4. Gemini 3.5 Flash is live everywhere today. 3.5 Pro lands next month. An optimized Flash reportedly runs 12x faster than other frontier models.</div>
-    <div class="source">Google</div>
-  </div>
-
-  <div class="item">
-    <a class="title" href="https://9to5google.com/2026/05/19/google-io-2026-live-blog-news-hub/">Google closes I/O with intelligent eyewear and an Antigravity upgrade</a>
-    <div class="desc">The keynote tail showed new intelligent eyewear shipping this fall. Google also upgraded <strong>Antigravity</strong>, its agent-first development platform, with new ways to orchestrate and build agents.</div>
-    <div class="source">9to5Google</div>
-  </div>
-
-  <div class="item">
-    <a class="title" href="https://openai.com/index/advancing-content-provenance/">OpenAI adopts C2PA and SynthID for image provenance</a>
-    <div class="desc">Announced May 19. OpenAI is now C2PA-conformant and adds Google DeepMind's <strong>SynthID</strong> invisible watermark to images from ChatGPT, Codex, and the API. A public tool to verify AI-generated images is in preview.</div>
+    <a class="title" href="https://openai.com/news/">OpenAI says one of its models cracked an open problem in discrete geometry</a>
+    <div class="desc">Announced May 22. OpenAI claims an internal model disproved a long-standing conjecture in discrete geometry. Not a model release. A capability claim that, if it survives peer review, is a real data point for math reasoning. Skepticism welcomed.</div>
     <div class="source">OpenAI</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://openai.com/index/dell-codex-enterprise-partnership/">OpenAI and Dell bring Codex on-premises</a>
-    <div class="desc">Codex will connect to the Dell AI Data Platform so enterprises can run it where their data already lives. OpenAI says <strong>4M+ developers</strong> now use Codex every week.</div>
-    <div class="source">OpenAI · Dell</div>
+    <a class="title" href="https://techcrunch.com/2026/05/19/google-launches-antigravity-2-0-with-an-updated-desktop-app-and-cli-tool-at-io-2026/">Antigravity 2.0 shapes up as Google's Claude Code answer</a>
+    <div class="desc">After last week's I/O drop, the picture clarified. Standalone desktop app, CLI, SDK, managed agents in the Gemini API, scheduled tasks. The CLI and SDK are the parts to watch if you write agents.</div>
+    <div class="source">TechCrunch</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://llm-stats.com/ai-news">DeepSeek makes the 75% V4 Pro discount permanent</a>
+    <div class="desc">As of May 22, V4 Pro sits at <strong>$0.435 / $0.87 per 1M tokens</strong> in/out. V4 Flash at <strong>$0.14 / $0.28</strong>. Open-weight reasoning at frontier-adjacent quality, priced for hobby projects. Worth a reread of your token budget.</div>
+    <div class="source">llm-stats</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://openai.com/news/">Gartner names OpenAI a Leader in enterprise coding agents</a>
+    <div class="desc">May 27. Gartner's first Magic Quadrant for enterprise coding agents puts OpenAI in the Leaders box. Useful as a signal of how procurement teams will start writing RFPs over the next quarter, even if you ignore the chart itself.</div>
+    <div class="source">OpenAI · Gartner</div>
   </div>
 
   <div class="callout">
     <div class="callout-label">More signal</div>
     <ul>
-      <li><a href="https://techcrunch.com/2026/05/15/openai-launches-chatgpt-for-personal-finance-will-let-you-connect-bank-accounts/"><strong>ChatGPT personal finance</strong></a>. Connect bank accounts via Plaid, in US Pro preview</li>
-      <li><a href="https://releasebot.io/updates/openai/chatgpt"><strong>Codex on the ChatGPT mobile app</strong></a>. Review, approve, and steer coding tasks from your phone</li>
-      <li><a href="https://llm-stats.com/ai-news"><strong>ClawBench</strong></a>. 153 web tasks across 144 live sites, Claude Sonnet 4.6 leads at 33.3%</li>
-      <li><a href="https://www.crescendo.ai/news/latest-ai-news-and-updates"><strong>Gemma 4</strong></a>. Google's open reasoning models, shipped under Apache 2.0</li>
-      <li><a href="https://whatllm.org/blog/new-ai-models-may-2026"><strong>New models, May 2026</strong></a>. SubQ's 12M-context subquadratic LLM, and a frontier breather</li>
-      <li><a href="https://press.airstreet.com/p/state-of-ai-may-2026"><strong>State of AI, May 2026</strong></a>. Air Street's monthly read on where things actually stand</li>
+      <li><a href="https://openai.com/index/dell-codex-enterprise-partnership/"><strong>Codex on Dell on-prem</strong></a>. OpenAI says 4M+ developers use Codex weekly. On-prem is the enterprise unlock</li>
+      <li><a href="https://benchlm.ai/benchmarks/sweVerified"><strong>SWE-bench Verified leaderboard</strong></a>. Mythos Preview 93.9%, Opus 4.8 88.6%, Opus 4.7 Adaptive 87.6%</li>
+      <li><a href="https://benchmarkingagents.com/agent-benchmarks/"><strong>RDI says agent benchmarks are gameable</strong></a>. Eight major suites hit near-perfect scores without solving tasks. Read before you cite a number</li>
+      <li><a href="https://www.infoq.com/news/2026/05/cloudflare-llm-infrastructure/"><strong>Cloudflare splits prefill from decode</strong></a>. New inference stack runs prompt processing and generation on separate optimized hardware</li>
+      <li><a href="https://whatllm.org/blog/new-ai-models-may-2026"><strong>State of new models, May 2026</strong></a>. The frontier took a breather. Architecture work, not size, drove the month</li>
+      <li><a href="https://www.crescendo.ai/news/latest-ai-news-and-updates"><strong>Latest AI news roundup</strong></a>. Crescendo's running tape for everything else worth a glance</li>
     </ul>
   </div>
 </div>
 
 <nav class="issue-nav">
-  <a class="nav-prev" href="005.html">
+  <a class="nav-prev" href="006.html">
     <span class="nav-meta"><span class="nav-arrow">&larr;</span> Previous</span>
-    <span class="nav-label">Issue #005 &middot; May 15</span>
+    <span class="nav-label">Issue #006 &middot; May 22</span>
   </a>
   <a class="nav-archive" href="../">All issues</a>
-  <a class="nav-next" href="007.html">
-    <span class="nav-meta">Next <span class="nav-arrow">&rarr;</span></span>
-    <span class="nav-label">Issue #007 &middot; May 29</span>
-  </a>
+  <span class="nav-empty"></span>
 </nav>
 
 <div class="footer">
-  <p>Claude & AI Weekly #6 · Curated by Claude</p>
-  <p>Next issue · Friday, May 29</p>
+  <p>Claude & AI Weekly #7 · Curated by Claude</p>
+  <p>Next issue · Friday, June 5</p>
 </div>
 
 </div>
@@ -812,7 +809,6 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
         sync();
       });
     });
-    // React to system changes when no explicit user choice is stored
     mql.addEventListener && mql.addEventListener('change', function(){
       if (!root.getAttribute('data-theme')) sync();
     });
