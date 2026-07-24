@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Claude &amp; AI Weekly · Issue #12, July 17, 2026</title>
-<meta name="description" content="A deep dive on Claude's memory layer, Sonnet 5 becomes the paid default, GPT-5.6 Sol opens to everyone, and Gemini 3.5 Pro misses another date.">
+<title>Claude &amp; AI Weekly · Issue #13, July 24, 2026</title>
+<meta name="description" content="Voice mode graduates to Opus and Sonnet, a plugin deep dive, /code-review goes background, and Alphabet raises capex to $205B as Cloud jumps 82%.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Claude & AI Weekly">
-<meta property="og:title" content="Claude &amp; AI Weekly · Issue #012: Memory deep dive, GPT-5.6 everywhere, Gemini slips">
-<meta property="og:description" content="A deep dive on Claude's memory layer, Sonnet 5 becomes the paid default, GPT-5.6 Sol opens to everyone, and Gemini 3.5 Pro misses another date.">
-<meta property="og:url" content="https://anshdivu.github.io/ai-newsletter/weekly/012.html">
-<meta property="og:image" content="https://anshdivu.github.io/ai-newsletter/og/012.png">
+<meta property="og:title" content="Claude &amp; AI Weekly · Issue #013: Voice mode gets serious, plugins, and Google's $205B">
+<meta property="og:description" content="Voice mode graduates to Opus and Sonnet, a plugin deep dive, /code-review goes background, and Alphabet raises capex to $205B as Cloud jumps 82%.">
+<meta property="og:url" content="https://anshdivu.github.io/ai-newsletter/weekly/013.html">
+<meta property="og:image" content="https://anshdivu.github.io/ai-newsletter/og/013.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Claude &amp; AI Weekly — Issue #012, July 17, 2026">
-<meta property="article:published_time" content="2026-07-17">
+<meta property="og:image:alt" content="Claude &amp; AI Weekly — Issue #013, July 24, 2026">
+<meta property="article:published_time" content="2026-07-24">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Claude &amp; AI Weekly · Issue #012: Memory deep dive, GPT-5.6 everywhere, Gemini slips">
-<meta name="twitter:description" content="A deep dive on Claude's memory layer, Sonnet 5 becomes the paid default, GPT-5.6 Sol opens to everyone, and Gemini 3.5 Pro misses another date.">
-<meta name="twitter:image" content="https://anshdivu.github.io/ai-newsletter/og/012.png">
-<link rel="canonical" href="https://anshdivu.github.io/ai-newsletter/weekly/012.html">
+<meta name="twitter:title" content="Claude &amp; AI Weekly · Issue #013: Voice mode gets serious, plugins, and Google's $205B">
+<meta name="twitter:description" content="Voice mode graduates to Opus and Sonnet, a plugin deep dive, /code-review goes background, and Alphabet raises capex to $205B as Cloud jumps 82%.">
+<meta name="twitter:image" content="https://anshdivu.github.io/ai-newsletter/og/013.png">
+<link rel="canonical" href="https://anshdivu.github.io/ai-newsletter/weekly/013.html">
 <base target="_blank">
 <script>
   // Apply persisted theme before paint to avoid flash
@@ -564,7 +564,7 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
 <div class="wrap">
 
 <div class="masthead">
-  <div class="issue">#12 · July 17, 2026</div>
+  <div class="issue">#13 · July 24, 2026</div>
   <h1>Claude <span>&</span> AI Weekly</h1>
   <div class="tagline">Features, tips, community, and the broader AI landscape. In 5 minutes</div>
 </div>
@@ -574,34 +574,27 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
   <div class="section-tag tag-tips">Tips & Tricks</div>
 
   <div class="tip">
-    <div class="tip-label">Run parallel sessions in worktrees · Superdev Academy</div>
-    <div class="tip-text"><strong>Run 3 to 5 Claude sessions at once, each in its own git worktree.</strong> Claude Code has native worktree support, so agents never trample each other's diffs. Practitioners call this the biggest single productivity unlock of 2026. <a href="https://www.superdevacademy.com/en/blogs/claude-ai-2026-guide-coding-tips-tricks">10 hidden features →</a></div>
+    <div class="tip-label">Plan against the code that exists · OpenHands</div>
+    <div class="tip-text"><strong>Make Claude read before it writes.</strong> Ask it to describe the current architecture, then name the smallest change that gets the job done. Plans grounded in real code beat plans invented from the prompt. <a href="https://www.openhands.dev/blog/claude-code-best-practices-agentic-coding">10 practices for agentic coding →</a></div>
   </div>
 
   <div class="tip">
-    <div class="tip-label">Show one good example · SurePrompts</div>
-    <div class="tip-text"><strong>Claude learns faster from examples than from rules.</strong> Paste one sample of the output you want instead of three paragraphs describing it. Works for tone, structure, and code style alike. <a href="https://sureprompts.com/blog/how-to-use-claude">35 advanced tips →</a></div>
+    <div class="tip-label">Define done before you start · QAPulse</div>
+    <div class="tip-text"><strong>Give Claude a finish line: a failing test, an expected output, a command to run.</strong> Verification criteria turn "try this" into "prove this". Without them, Claude decides for itself when it is done. <a href="https://www.skakarh.com/blog/claude-code-best-practices">20 proven tips →</a></div>
   </div>
 
   <div class="tip">
-    <div class="tip-label">Treat CLAUDE.md as a team file · Make to Create</div>
-    <div class="tip-text"><strong>One CLAUDE.md at repo root, checked into git, whole team contributing.</strong> Every time Claude does something wrong, add a line so it never repeats the mistake. The file becomes your team's institutional memory. <a href="https://maketocreate.com/claude-md-best-practices-the-complete-2026-guide/">The complete 2026 guide →</a></div>
-  </div>
-
-  <div class="tip">
-    <div class="tip-label">Structure beats the wall of text · NexaSphere</div>
-    <div class="tip-text"><strong>Claude parses structured prompts more reliably than prose dumps.</strong> Wrap context, instructions, and examples in XML-style tags so nothing bleeds together. The payoff grows with prompt length. <a href="https://nexasphere.io/blog/claude-ai-tips-tricks-2026">25 ways to better results →</a></div>
+    <div class="tip-label">Put a budget on your agents · Claude Code changelog</div>
+    <div class="tip-text"><strong>Long unattended runs need guardrails, and they are built in now.</strong> <code>--max-budget-usd</code> halts background subagents at the cap, and <code>CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS</code> limits fan-out (default 20). Set both before overnight work. <a href="https://code.claude.com/docs/en/changelog">The changelog →</a></div>
   </div>
 
   <div class="callout">
     <div class="callout-label">More to explore</div>
     <ul>
-      <li><a href="https://smartscope.blog/en/generative-ai/claude/claude-code-best-practices-advanced-2026/"><strong>11 advanced techniques</strong></a>. Hooks, subagents, and context management</li>
-      <li><a href="https://emergingai.substack.com/p/claude-changed-the-july-2026-way"><strong>The July 2026 way to use Claude</strong></a>. How the workflow changed this year</li>
-      <li><a href="https://tipsforclaude.com/"><strong>tipsforclaude.com</strong></a>. Community tip aggregator, updated weekly</li>
-      <li><a href="https://github.com/shanraisshan/claude-code-best-practice"><strong>claude-code-best-practice</strong></a>. From vibe coding to agentic engineering</li>
-      <li><a href="https://medium.com/the-ai-cafe/ive-used-claude-every-day-for-6-months-here-are-9-prompts-i-wish-i-d-known-on-day-1-729a9041cbdd"><strong>8 day-one prompts</strong></a>. Six months of daily use, distilled</li>
-      <li><a href="https://www.popsci.com/diy/claude-ai-tips-tricks/"><strong>9 tips from Popular Science</strong></a>. The mainstream on-ramp</li>
+      <li><a href="https://www.the-ai-corner.com/p/claude-best-practices-power-user-guide-2026"><strong>The power-user guide</strong></a>. Claude best practices, end to end</li>
+      <li><a href="https://collabnix.com/claude-code-best-practices-10-workflow-tips-that-senior-engineers-swear-by-in-2026/"><strong>10 senior-engineer workflows</strong></a>. Scope, verify, bound, remember</li>
+      <li><a href="https://masterprompting.net/blog/best-ai-prompts-for-claude-2026"><strong>50 prompts that work</strong></a>. Copy, adapt, ship</li>
+      <li><a href="https://promptadvance.club/claude-prompts"><strong>764 Claude prompts</strong></a>. The big prompt library, sorted by task</li>
     </ul>
   </div>
 </div>
@@ -613,37 +606,36 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
 
   <div class="spotlight">
     <div class="spot-label">This week</div>
-    <div class="spot-title">Memory, the context Claude keeps between conversations</div>
-    <div class="spot-desc"><strong>Memory is Claude's persistent record of who you are and what you work on.</strong> Entries update in real time as you chat, and every one is visible and editable at <strong>Settings &gt; Memory</strong>. Each Project gets its own isolated memory space, so client work stays walled off from everything else. It has been free on every tier since March. Reach for it when you are tired of re-introducing your stack, your style, or your org chart in every new chat.</div>
+    <div class="spot-title">Plugins, capability you install once and carry everywhere</div>
+    <div class="spot-desc"><strong>A plugin is one package that bundles skills, agents, hooks, MCP servers, even LSP config.</strong> Everything arrives namespaced as <code>/plugin-name:skill</code>, so nothing collides. Anthropic runs two public marketplaces: a curated official one, registered automatically on first launch, and a community catalog that reviews third-party submissions. Reach for plugins when you keep copying the same skills and hooks between projects, or when your whole team should share one setup.</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context">Chat search and memory, the official guide</a>
-    <div class="desc">How memory builds on your chat history, what gets stored, and the controls at <strong>Settings &gt; Capabilities &gt; Memory</strong>. Start here before the community guides.</div>
-    <div class="source">Claude Help Center</div>
+    <a class="title" href="https://code.claude.com/docs/en/plugins">Create plugins, the official guide</a>
+    <div class="desc">From <code>claude plugin init</code> to a working package: manifest, skills, hooks, and local testing with <code>--plugin-dir</code>. The quickstart takes minutes.</div>
+    <div class="source">Claude Code Docs</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://www.shareuhack.com/en/posts/claude-memory-feature-guide-2026">The 3 memory layers most users miss</a>
-    <div class="desc">Chat memory, per-Project memory, and incognito sessions each behave differently. A practical setup walkthrough for all three.</div>
-    <div class="source">ShareUhack</div>
+    <a class="title" href="https://code.claude.com/docs/en/discover-plugins">Discover and install, the other half</a>
+    <div class="desc">Browse marketplaces, install with one <code>/plugin install</code> command, and wire a team marketplace into your repo so everyone gets the same tools.</div>
+    <div class="source">Claude Code Docs</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://lumichats.com/blog/claude-memory-2026-complete-guide-how-to-use">What memory stores, and whether to trust it</a>
-    <div class="desc">A full tour of the memory store: how entries get written, how to audit them, and the gaps. One that matters: <strong>no memory in the API or Claude Code</strong>.</div>
-    <div class="source">LumiChats</div>
+    <a class="title" href="https://designrevision.com/blog/claude-code-plugins">The complete 2026 guide</a>
+    <div class="desc">What plugins are, how they differ from standalone <code>.claude/</code> config, and which ones earn a permanent slot.</div>
+    <div class="source">DesignRevision</div>
   </div>
 
   <div class="callout">
     <div class="callout-label">Also worth learning</div>
     <ul>
-      <li><a href="https://medium.com/@christianaistudio/activate-claudes-hidden-memory-it-will-remember-your-style-clients-and-projects-9475d1c5175f"><strong>Explicit saves</strong></a>. Say "add to memory that..." for instant writes</li>
-      <li><a href="https://stacknotice.com/blog/claude-projects-memory-guide-2026"><strong>Projects + memory</strong></a>. How per-Project isolation actually works</li>
-      <li><a href="https://unabyss.com/blog/claude-memory-feature"><strong>What it doesn't do</strong></a>. Limits and common misconceptions</li>
-      <li><a href="https://releasebot.io/updates/anthropic/claude"><strong>Reflect needs memory on</strong></a>. The monthly recap rides on this layer</li>
-      <li><a href="https://its.syr.edu/claude-has-a-memory-heres-how-to-use-it/"><strong>A university's primer</strong></a>. Syracuse ITS on safe day-to-day use</li>
-      <li><a href="https://suprmind.ai/hub/claude/features/"><strong>The full feature map</strong></a>. Where memory sits among Projects, Skills, MCP</li>
+      <li><a href="https://www.agensi.io/learn/claude-code-plugin-marketplace-guide"><strong>claude-plugins-official</strong></a>. Around 100 curated plugins, ready on first launch</li>
+      <li><a href="https://github.com/anthropics/claude-plugins-community"><strong>The community catalog</strong></a>. Add it with <code>/plugin marketplace add</code></li>
+      <li><a href="https://code.claude.com/docs/en/plugin-marketplaces"><strong>Host your own marketplace</strong></a>. Private repos work for team-only plugins</li>
+      <li><a href="https://code.claude.com/docs/en/plugins-reference"><strong>The full reference</strong></a>. Manifest schema, monitors, versioning</li>
+      <li><a href="https://mcsaguru.com/install-claude-code-plugins-marketplace-guide"><strong>A visual walkthrough</strong></a>. The install flow, with screenshots</li>
     </ul>
   </div>
 </div>
@@ -654,39 +646,39 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
   <div class="section-tag tag-releases">Claude Releases</div>
 
   <div class="item">
-    <a class="title" href="https://releasebot.io/updates/anthropic/claude">Sonnet 5 becomes the default on paid plans</a>
-    <div class="desc"><strong>Pro, Team Standard, and Enterprise</strong> seats now default to Sonnet 5: top-tier coding and tool use at Sonnet pricing, a native <strong>1M-token</strong> window, adaptive thinking on by default.</div>
-    <div class="source">Releasebot</div>
+    <a class="title" href="https://claude.com/blog/think-through-hard-problems-in-voice-mode">Voice mode graduates to Opus and Sonnet</a>
+    <div class="desc">Voice conversations now run on the models built for hard problems, switchable mid-chat. Claude can also reach your connected tools by voice and speak <strong>11 languages</strong>. Beta on every plan.</div>
+    <div class="source">Claude Blog</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://www.anthropic.com/news">Claude for Teachers opens free premium access</a>
-    <div class="desc">Verified US <strong>K-12 educators</strong> get premium Claude tools, a library of teaching skills, and curriculum connections mapped to standards in all 50 states.</div>
+    <a class="title" href="https://www.anthropic.com/news/anthropic-economic-index-connector">Ask the Economic Index directly in Claude</a>
+    <div class="desc">A new connector puts Anthropic's AI-usage data in any conversation: which occupations use AI most, what tasks are being automated, and how that changed this year.</div>
     <div class="source">Anthropic</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://releasebot.io/updates/anthropic">Self-serve HIPAA setup for Enterprise and API orgs</a>
-    <div class="desc">BAA review, guide download, and one-step enablement, all from the console. Health workloads no longer wait on a sales thread.</div>
-    <div class="source">Releasebot</div>
+    <a class="title" href="https://code.claude.com/docs/en/changelog">/code-review moves to the background</a>
+    <div class="desc">Claude Code <strong>2.1.218</strong> runs reviews as a background subagent, so a long review no longer fills your conversation. <code>/deep-research</code> now also waits to be invoked.</div>
+    <div class="source">Claude Code changelog</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://techcrunch.com/2026/07/13/anthropic-starts-localizing-claude-pricing-for-india-its-biggest-market-after-the-us/">Claude pricing gets localized for India</a>
-    <div class="desc">India is Claude's <strong>second-largest market</strong> at 5.8 percent of global usage. Local pricing started rolling out July 13.</div>
-    <div class="source">TechCrunch</div>
+    <a class="title" href="https://docs.claude.com/en/release-notes/overview">Managed Agents get an effort dial</a>
+    <div class="desc">The platform adds per-agent <strong>effort levels</strong>, lifecycle webhooks for environments and memory stores, and session seeding with up to <strong>50 initial events</strong>.</div>
+    <div class="source">Claude Developer Platform</div>
   </div>
 
   <div class="callout">
     <div class="callout-label">In brief</div>
     <ul>
-      <li><a href="https://code.claude.com/docs/en/changelog"><strong>Claude Code 2.1.211</strong></a>. Workflows can now forward subagent insights</li>
-      <li><a href="https://code.claude.com/docs/en/changelog"><strong>Live tool-call counter</strong></a>. 2.1.210 shows progress on long-running calls</li>
-      <li><a href="https://releasebot.io/updates/anthropic/claude-code"><strong>Auto mode everywhere</strong></a>. On Bedrock, Vertex, and Foundry without opt-in</li>
-      <li><a href="https://releasebot.io/updates/anthropic/claude-code"><strong>Terminal fixes</strong></a>. Freezing and keystroke lag on long streams, gone</li>
-      <li><a href="https://techcrunch.com/2026/07/15/anthropic-blackstone-bet-the-next-trillion-dollar-ai-business-is-implementation-not-models/"><strong>Ode</strong></a>. The $1.5B implementation venture with Blackstone, now at 100 engineers</li>
-      <li><a href="https://www.technologyreview.com/2026/07/13/1140343/what-anthropics-latest-ai-discovery-does-and-doesnt-show/"><strong>J-space research</strong></a>. Hidden words that steer model reasoning, and the caveats</li>
-      <li><a href="https://support.claude.com/en/articles/12138966-release-notes"><strong>Release notes</strong></a>. The running log of everything shipped</li>
+      <li><a href="https://code.claude.com/docs/en/changelog"><strong>Subagent guardrails</strong></a>. Max 20 concurrent, no nested spawns by default</li>
+      <li><a href="https://code.claude.com/docs/en/changelog"><strong>Runaway-loop caps</strong></a>. 200 web searches and 200 subagent spawns per session</li>
+      <li><a href="https://code.claude.com/docs/en/changelog"><strong>/fork goes background</strong></a>. Your conversation copies into its own session while you keep working</li>
+      <li><a href="https://code.claude.com/docs/en/changelog"><strong>Slow MCP calls auto-background</strong></a>. Anything past 2 minutes moves out of your way</li>
+      <li><a href="https://www.anthropic.com/research/end-subset-conversations"><strong>EndConversation lands in the CLI</strong></a>. The claude.ai abusive-session exit, now in Claude Code</li>
+      <li><a href="https://code.claude.com/docs/en/changelog"><strong>Permission hardening</strong></a>. A fail-closed sweep across bash redirects, PowerShell, and docker flags</li>
+      <li><a href="https://code.claude.com/docs/en/changelog"><strong>Emoji shortcodes</strong></a>. Type <code>:heart:</code> in the prompt; off via <code>emojiCompletionEnabled</code></li>
     </ul>
   </div>
 </div>
@@ -697,31 +689,30 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
   <div class="section-tag tag-community">Community & Open Source</div>
 
   <div class="item">
-    <a class="title" href="https://github.com/jeremylongshore/claude-code-plugins-plus-skills">tonsofskills crosses 3,600 community skills</a>
-    <div class="desc">The open marketplace now lists <strong>470 plugins, 3,677 skills, and 347 agents</strong>, installable through the <code>ccpi</code> CLI package manager. Community validation keeps the junk out.</div>
+    <a class="title" href="https://github.com/ComposioHQ/awesome-claude-skills">awesome-claude-skills passes 13,000 stars</a>
+    <div class="desc">Composio's curated list now tracks <strong>1,000+ agent skills</strong> that work across Claude Code, Codex, Gemini CLI, and Cursor. Skills are quietly becoming a cross-tool standard.</div>
     <div class="source">GitHub</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://claudemarketplaces.com/">The ecosystem count: 23,400 skills, 12,700 MCP servers</a>
-    <div class="desc">A directory tracking the wider Claude ecosystem across <strong>2,600 marketplaces</strong>. The long tail is now most of the catalog.</div>
-    <div class="source">claudemarketplaces.com</div>
+    <a class="title" href="https://every.to/source-code/claude-code-is-the-openclaw-alternative-you-already-have">The OpenClaw alternative you already have</a>
+    <div class="desc">Every argues the viral open-source agent's best tricks are things Claude Code already does. The gap is packaging, not capability.</div>
+    <div class="source">Every</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://www.firecrawl.dev/blog/best-claude-code-skills">Firecrawl picks the skills worth installing</a>
-    <div class="desc">A curated pass through the skill flood: what to install first, and what each one actually does day to day.</div>
-    <div class="source">Firecrawl</div>
+    <a class="title" href="https://www.xda-developers.com/open-source-tools-do-what-claude-charges-for-and-some-do-it-better/">The free tools that match Claude's paid features</a>
+    <div class="desc">XDA tests open-source stand-ins for Claude's premium features and finds a few that hold up. A useful map of where the moat actually is.</div>
+    <div class="source">XDA Developers</div>
   </div>
 
   <div class="callout">
     <div class="callout-label">In brief</div>
     <ul>
-      <li><a href="https://code.claude.com/docs/en/discover-plugins"><strong>Marketplace docs</strong></a>. How validation and install actually work</li>
-      <li><a href="https://securityboulevard.com/2026/06/7-claude-code-plugins-from-the-marketplace-worth-your-time/"><strong>7 plugins worth your time</strong></a>. A security-minded shortlist</li>
-      <li><a href="https://designrevision.com/blog/awesome-claude-code-plugins"><strong>Awesome plugins</strong></a>. The curated list, kept current</li>
-      <li><a href="https://www.agensi.io/learn/claude-code-plugin-marketplace-guide"><strong>Publishing guide</strong></a>. Ship your own plugin to a marketplace</li>
-      <li><a href="https://github.com/alirezarezvani/claude-skills"><strong>claude-skills</strong></a>. A maintained community skills monorepo</li>
+      <li><a href="https://github.com/topics/claude-code-skills"><strong>claude-code-skills on GitHub</strong></a>. The raw firehose, sorted by stars</li>
+      <li><a href="https://www.claudepluginhub.com/blog/trending-claude-plugins-june-2026"><strong>Plugins to watch</strong></a>. ClaudePluginHub's trending shortlist</li>
+      <li><a href="https://designrevision.com/blog/awesome-claude-code-skills"><strong>Awesome skills, curated</strong></a>. An annotated pick list by category</li>
+      <li><a href="https://github.com/jeremylongshore/claude-code-plugins-plus-skills"><strong>claude-code-plugins namespace</strong></a>. 453 published packages and counting</li>
     </ul>
   </div>
 </div>
@@ -732,59 +723,54 @@ code { font-family: var(--mono); font-size: 0.86em; background: var(--code-bg); 
   <div class="section-tag tag-landscape">AI / LLM Landscape</div>
 
   <div class="item">
-    <a class="title" href="https://www.axios.com/2026/07/14/sam-altman-chat-gpt-sol-ultra-warning">GPT-5.6 Sol opens to everyone, hiccups and all</a>
-    <div class="desc">The full 5.6 family is now broadly out after a government-requested stagger. Sol's new <strong>ultra mode</strong> delegates work to submodels. Altman is pre-warning about rough edges.</div>
-    <div class="source">Axios</div>
+    <a class="title" href="https://www.cnbc.com/2026/07/22/google-earnings-q2-goog-live-updates.html">Alphabet raises capex to $205B as Cloud jumps 82%</a>
+    <div class="desc">Q2 revenue grew <strong>24%</strong>, Cloud hit <strong>$24.8B</strong>, and the 2026 capex guide moved to <strong>$195-205B</strong>. The stock fell 6 percent anyway. Spending, not demand, is the worry.</div>
+    <div class="source">CNBC</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://www.techtimes.com/articles/320736/20260716/rebuilt-gemini-35-pro-misses-third-deadline-google-eyes-stopgap-release.htm">Gemini 3.5 Pro misses its third deadline</a>
-    <div class="desc">The rebuilt model failed reliability bars, including hallucination rates, and trails GPT-5.6 on benchmarks. Google is weighing a <strong>stopgap release</strong> instead.</div>
-    <div class="source">TechTimes</div>
-  </div>
-
-  <div class="item">
-    <a class="title" href="https://llm-stats.com/ai-news">Kimi K3 ships as a 2.8T-parameter open MoE</a>
-    <div class="desc">Moonshot's new flagship activates <strong>16 of 896 experts</strong> per token, built on Kimi Delta Attention. Open weights at frontier scale keep getting bigger.</div>
+    <a class="title" href="https://llm-stats.com/ai-news">Google ships Gemini 3.6 Flash while the flagship waits</a>
+    <div class="desc"><strong>Gemini 3.6 Flash</strong> and 3.5 Flash Lite landed July 21. The rebuilt 3.5 Pro, three deadlines behind, still has no date.</div>
     <div class="source">LLM Stats</div>
   </div>
 
   <div class="item">
-    <a class="title" href="https://llm-stats.com/llm-updates">DeepSeek V4-Pro and V4-Flash target agents</a>
-    <div class="desc">Two MoE models with a <strong>1M-token window</strong> and hybrid attention that cuts inference cost. Aimed squarely at long-running agentic work.</div>
-    <div class="source">LLM Stats</div>
+    <a class="title" href="https://aiweekly.co/ai-news-today/mistral-ai-news">Mistral puts an 8B model inside a robot</a>
+    <div class="desc">The model steers robots through natural-language instructions using a <strong>single RGB camera</strong>, claiming state of the art on R2R-CE. Mistral's first embodied-AI move.</div>
+    <div class="source">AI Weekly</div>
+  </div>
+
+  <div class="item">
+    <a class="title" href="https://releasebot.io/updates/openai/chatgpt">GPT-5.6 becomes the default in Microsoft 365 Copilot</a>
+    <div class="desc">Two weeks after launch, <strong>GPT-5.6</strong> is now the preferred model across Copilot. Distribution at enterprise scale, faster than any prior GPT.</div>
+    <div class="source">Releasebot</div>
   </div>
 
   <div class="callout">
     <div class="callout-label">More signal</div>
     <ul>
-      <li><a href="https://www.buildfastwithai.com/blogs/ai-news-today-july-14-2026"><strong>Hassabis wants a FINRA for AI</strong></a>. An industry-funded self-regulator</li>
-      <li><a href="https://www.buildfastwithai.com/blogs/ai-news-today-july-14-2026"><strong>New York freezes data centers</strong></a>. Grid strain meets AI buildout</li>
-      <li><a href="https://www.buildfastwithai.com/blogs/ai-news-today-july-14-2026"><strong>Publishers sue Google</strong></a>. AI Overviews land in court</li>
-      <li><a href="https://www.buildfastwithai.com/blogs/ai-news-today-july-14-2026"><strong>GPT-5.6 caught deleting files</strong></a>. Agent safety, live-fire edition</li>
-      <li><a href="https://www.buildfastwithai.com/blogs/ai-news-today-july-15-2026"><strong>AI Safety Index: best grade C+</strong></a>. Anthropic tops the 2026 table</li>
-      <li><a href="https://thenewstack.io/gpt-5-6-codex-user-surge/"><strong>Codex hits 8M users</strong></a>. What the surge means for developers</li>
-      <li><a href="https://openai.com/index/unlocking-self-improvement-gpt-red/"><strong>GPT-Red</strong></a>. OpenAI on self-improvement for robustness</li>
-      <li><a href="https://llm-stats.com/ai-news"><strong>WAIC opens in Shanghai</strong></a>. The year's biggest AI stage, today</li>
+      <li><a href="https://dentro.de/ai/news/"><strong>EU AI Act, 9 days out</strong></a>. High-risk and transparency obligations tighten August 2</li>
+      <li><a href="https://www.crescendo.ai/news/latest-ai-news-and-updates"><strong>AI Overviews hit 55% of searches</strong></a>. Zero-click results near 69%</li>
+      <li><a href="https://seekingalpha.com/news/4617114-alphabet-signals-195b-205b-2026-capex-while-expanding-third-party-capacity-as-a-bridge"><strong>Alphabet rents the bridge</strong></a>. Third-party data centers fill the capacity gap</li>
+      <li><a href="https://llm-stats.com/llm-updates"><strong>Moonshot ships again</strong></a>. A new Kimi update lands weeks after K3</li>
+      <li><a href="https://thursdai.news/releases/2026-07"><strong>July's release wave, mapped</strong></a>. Every lab's month, in one tracker</li>
+      <li><a href="https://pricepertoken.com/news/model-releases"><strong>The daily model firehose</strong></a>. Releases from the last 24 hours</li>
     </ul>
   </div>
 </div>
 
 <nav class="issue-nav">
-  <a class="nav-prev" href="011.html">
+  <a class="nav-prev" href="012.html">
     <span class="nav-meta"><span class="nav-arrow">&larr;</span> Previous</span>
-    <span class="nav-label">Issue #011 &middot; Jul 10</span>
+    <span class="nav-label">Issue #012 &middot; Jul 17</span>
   </a>
   <a class="nav-archive" href="../">All issues</a>
-  <a class="nav-next" href="013.html">
-    <span class="nav-meta">Next <span class="nav-arrow">&rarr;</span></span>
-    <span class="nav-label">Issue #013 &middot; Jul 24</span>
-  </a>
+  <span class="nav-empty"></span>
 </nav>
 
 <div class="footer">
-  <p>Claude & AI Weekly #12 · Curated by Claude</p>
-  <p>Next issue · Friday, July 24</p>
+  <p>Claude & AI Weekly #13 · Curated by Claude</p>
+  <p>Next issue · Friday, July 31</p>
 </div>
 
 </div>
